@@ -1,13 +1,53 @@
+import 'package:dr_family_app/screens/patients/loginPatient.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
-import 'login.dart';
-
-class UserRegister extends StatefulWidget {
+class PatientRigister extends StatefulWidget {
   @override
-  _UserRegisterState createState() => _UserRegisterState();
+  _PatientRigisterState createState() => _PatientRigisterState();
 }
 
-class _UserRegisterState extends State<UserRegister> {
+class LabeledRadio extends StatelessWidget {
+  const LabeledRadio({
+    this.label,
+    this.padding,
+    this.groupValue,
+    this.value,
+    this.onChanged,
+  });
+
+  final String label;
+  final EdgeInsets padding;
+  final bool groupValue;
+  final bool value;
+  final Function onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        if (value != groupValue) onChanged(value);
+      },
+      child: Padding(
+        padding: padding,
+        child: Row(
+          children: <Widget>[
+            Radio<bool>(
+              groupValue: groupValue,
+              value: value,
+              onChanged: (bool newValue) {
+                onChanged(newValue);
+              },
+            ),
+            Text(label),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PatientRigisterState extends State<PatientRigister> {
   final _formKey = GlobalKey<FormState>();
   var emailController = TextEditingController();
   var fullNameController = TextEditingController();
@@ -16,6 +56,8 @@ class _UserRegisterState extends State<UserRegister> {
   var addressController = TextEditingController();
   var phoneController = TextEditingController();
   var dateOfBirthController = TextEditingController();
+  bool _isRadioSelected = false;
+  String _date = "Ngày sinh";
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +72,9 @@ class _UserRegisterState extends State<UserRegister> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    child: Text('Register',
+                    child: Text('Đăng ký',
                         style: TextStyle(
-                            color: Colors.green,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold)),
+                            fontSize: 20, fontWeight: FontWeight.bold)),
                     padding: EdgeInsets.only(top: 25),
                   ),
                   Container(
@@ -47,12 +87,12 @@ class _UserRegisterState extends State<UserRegister> {
                                 BorderRadius.all(Radius.circular(100)),
                           ),
                           labelText: 'Email',
-                          hintText: 'Enter your email',
+                          hintText: 'Nhập email ',
                           suffixIcon: Icon(Icons.email)),
                       controller: emailController,
                       validator: (email) {
                         if (email.isEmpty) {
-                          return 'Please enter email';
+                          return 'Vui lòng nhập mật khẩu';
                         }
                         return null;
                       },
@@ -66,17 +106,59 @@ class _UserRegisterState extends State<UserRegister> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(100)),
                           ),
-                          labelText: 'Full name',
-                          hintText: 'Enter your full name',
+                          labelText: 'Họ và tên',
+                          hintText: 'Nhập họ và tên',
                           suffixIcon: Icon(Icons.account_box)),
                       autofocus: true,
                       controller: fullNameController,
                       validator: (fullName) {
                         if (fullName.isEmpty) {
-                          return 'Please enter your full name';
+                          return 'Vui lòng nhập họ và tên';
                         }
                         return null;
                       },
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      border: Border.all(
+                        width: 0.0,
+                      ),
+                    ),
+                    padding:
+                        EdgeInsets.only(left: 15, top: 5, bottom: 5, right: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Text('Giới tính:'),
+                        LabeledRadio(
+                          label: 'Nam',
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          value: true,
+                          groupValue: _isRadioSelected,
+                          onChanged: (bool newValue) {
+                            setState(() {
+                              _isRadioSelected = newValue;
+                            });
+                          },
+                        ),
+                        LabeledRadio(
+                          label: 'Nữ',
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          value: false,
+                          groupValue: _isRadioSelected,
+                          onChanged: (bool newValue) {
+                            setState(() {
+                              _isRadioSelected = newValue;
+                            });
+                          },
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(left: 55),
+                          child: Icon(Icons.wc_sharp),
+                        ),
+                      ],
                     ),
                   ),
                   Container(
@@ -87,15 +169,15 @@ class _UserRegisterState extends State<UserRegister> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(100)),
                           ),
-                          labelText: 'Password',
-                          hintText: 'Enter your password',
+                          labelText: 'Mật khẩu',
+                          hintText: 'Nhập mật khẩu',
                           suffixIcon: Icon(Icons.vpn_key)),
                       obscureText: true,
                       autofocus: true,
                       controller: passwordController,
                       validator: (password) {
                         if (password.length < 6 || password.length > 30) {
-                          return 'Please enter your password from 6 to 30 characters';
+                          return 'Vui lòng nhập mật khẩu từ 6 đến 30 kí tự';
                         }
                         return null;
                       },
@@ -109,8 +191,8 @@ class _UserRegisterState extends State<UserRegister> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(100)),
                           ),
-                          labelText: 'Confirm password',
-                          hintText: 'Enter your confirm password',
+                          labelText: 'Xác nhận mật khẩu',
+                          hintText: 'Nhập mật khẩu',
                           suffixIcon: Icon(Icons.vpn_key)),
                       obscureText: true,
                       autofocus: true,
@@ -118,13 +200,63 @@ class _UserRegisterState extends State<UserRegister> {
                       validator: (confirmPassword) {
                         if (confirmPassword.length < 6 ||
                             confirmPassword.length > 30) {
-                          return 'Please enter your confirm password from 6 to 30 characters';
+                          return 'Vui lòng nhập mật khẩu từ 6 đến 30 kí tự';
                         }
                         if (confirmPassword != passwordController.text) {
-                          return 'The password and confirmation password do not match';
+                          return 'Mật khẩu và xác nhận mật khẩu không trung khớp';
                         }
                         return null;
                       },
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      border: Border.all(
+                        width: 0.0,
+                      ),
+                    ),
+                    child: FlatButton(
+                      onPressed: () {
+                        DatePicker.showDatePicker(context,
+                            theme: DatePickerTheme(
+                              containerHeight: 210.0,
+                            ),
+                            showTitleActions: true,
+                            minTime: DateTime(1900, 1, 1),
+                            maxTime: DateTime(2999, 12, 31), onConfirm: (date) {
+                          print('confirm $date');
+                          _date = '${date.year} - ${date.month} - ${date.day}';
+                          setState(() {});
+                        }, currentTime: DateTime.now(), locale: LocaleType.en);
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 50.0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Container(
+                                  child: Row(
+                                    children: <Widget>[
+                                      Text(
+                                        " $_date",
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                            Icon(
+                              Icons.date_range,
+                              size: 18.0,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   Container(
@@ -135,14 +267,14 @@ class _UserRegisterState extends State<UserRegister> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(100)),
                           ),
-                          labelText: 'Address',
-                          hintText: 'Enter your address',
+                          labelText: 'Địa chỉ',
+                          hintText: 'Nhập địa chỉ',
                           suffixIcon: Icon(Icons.add_location)),
                       autofocus: true,
                       controller: addressController,
                       validator: (address) {
                         if (address.isEmpty) {
-                          return 'Please enter your address';
+                          return 'Vui lòng nhập địa chỉ';
                         }
                         return null;
                       },
@@ -156,37 +288,15 @@ class _UserRegisterState extends State<UserRegister> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(100)),
                           ),
-                          labelText: 'Phone number',
-                          hintText: 'Enter your phone number',
+                          labelText: 'Số điện thoại',
+                          hintText: 'Nhập số điện thoại',
                           suffixIcon: Icon(Icons.phone_android)),
                       keyboardType: TextInputType.number,
                       controller: phoneController,
                       autofocus: true,
                       validator: (phone) {
                         if (phone.isEmpty) {
-                          return 'Please enter your phone';
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(100)),
-                          ),
-                          labelText: 'Date of birth',
-                          hintText: 'Enter your date of birth',
-                          suffixIcon: Icon(Icons.date_range)),
-                      keyboardType: TextInputType.datetime,
-                      autofocus: true,
-                      controller: dateOfBirthController,
-                      validator: (dateOfBirth) {
-                        if (dateOfBirth.isEmpty) {
-                          return 'Please enter your date of birth';
+                          return 'Vui lòng nhập số điện thoại';
                         }
                         return null;
                       },
@@ -198,18 +308,20 @@ class _UserRegisterState extends State<UserRegister> {
                       Container(
                         padding: EdgeInsets.all(5),
                         child: FlatButton(
-                          child: Text('Register'),
+                          child: Text('Đăng ký'),
                           color: Colors.black12,
-                          textColor: Colors.black,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(
-                                  color: Colors.green,
-                                  width: 1,
-                                  style: BorderStyle.solid),
+                                  width: 1, style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(50)),
                           onPressed: () {
                             if (_formKey.currentState.validate()) {
                               // do something here
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPatient()),
+                              );
                             }
                           },
                         ),
@@ -217,19 +329,17 @@ class _UserRegisterState extends State<UserRegister> {
                       Container(
                         padding: EdgeInsets.all(5),
                         child: FlatButton(
-                          child: Text('Cancel'),
-                          textColor: Colors.black,
+                          child: Text('Hủy'),
                           color: Colors.black12,
                           shape: RoundedRectangleBorder(
                               side: BorderSide(
-                                  color: Colors.green,
-                                  width: 1,
-                                  style: BorderStyle.solid),
+                                  width: 1, style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(50)),
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Login()),
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPatient()),
                             );
                           },
                         ),

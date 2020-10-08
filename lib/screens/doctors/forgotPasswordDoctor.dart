@@ -1,16 +1,17 @@
+import 'package:dr_family_app/screens/doctors/loginDoctor.dart';
 import 'package:flutter/material.dart';
 
-import 'login.dart';
-
-class ForgotPassword extends StatefulWidget {
+class ForgotPasswordDoctor extends StatefulWidget {
   @override
-  _ForgotPasswordState createState() => _ForgotPasswordState();
+  _ForgotPasswordDoctorState createState() => _ForgotPasswordDoctorState();
 }
 
-class _ForgotPasswordState extends State<ForgotPassword> {
+class _ForgotPasswordDoctorState extends State<ForgotPasswordDoctor> {
   final _formKey = GlobalKey<FormState>();
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
+  final _formKeyCode = GlobalKey<FormState>();
+  var verifyController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +24,50 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  child: Text('Update password',
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold)),
+                  child: Text('Cập nhật mật khẩu',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                   padding: EdgeInsets.only(top: 25, bottom: 10),
+                ),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                      'Vui lòng nhập mã code từ email của bạn để cập nhật mật khẩu '),
+                ),
+                Container(
+                  child: Form(
+                    key: _formKeyCode,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.all(5),
+                            child: TextFormField(
+                              autofocus: true,
+                              controller: verifyController,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(100)),
+                                  ),
+                                  labelText: 'Mã code',
+                                  hintText: 'Nhập mã code',
+                                  suffixIcon: Icon(Icons.code)),
+                              validator: (email) {
+                                if (email.isEmpty) {
+                                  return 'Vui lòng nhập mã code';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ),
+                        //
+                      ],
+                    ),
+                  ),
                 ),
                 Container(
                   child: Form(
@@ -45,13 +84,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(100)),
                                 ),
-                                labelText: 'Password',
-                                hintText: 'Enter your password',
+                                labelText: 'Mật khẩu',
+                                hintText: 'Nhập mật khẩu',
                                 suffixIcon: Icon(Icons.vpn_key)),
                             obscureText: true,
                             validator: (password) {
                               if (password.length < 6 || password.length > 30) {
-                                return 'Please enter your password from 6 to 30 characters';
+                                return 'Vui lòng nhập mật khẩu từ 6 đến 30 ký tự';
                               }
                               return null;
                             },
@@ -65,8 +104,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(100)),
                                 ),
-                                labelText: 'Confirm password',
-                                hintText: 'Enter your confirm password',
+                                labelText: 'Mật khẩu xác nhận',
+                                hintText: 'Nhập mật khẩu xác nhận',
                                 suffixIcon: Icon(Icons.vpn_key)),
                             obscureText: true,
                             controller: confirmPasswordController,
@@ -74,10 +113,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             validator: (confirmPassword) {
                               if (confirmPassword.length < 6 ||
                                   confirmPassword.length > 30) {
-                                return 'Please enter your confirm password from 6 to 30 characters';
+                                return 'Vui lòng nhập mật khẩu của bạn từ 6 đến 30 ký tự';
                               }
                               if (confirmPassword != passwordController.text) {
-                                return 'The password and confirmation password do not match';
+                                return 'Mật khẩu và mật khẩu xác nhận không khớp';
                               }
                               return null;
                             },
@@ -89,18 +128,20 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             Container(
                               padding: EdgeInsets.all(5),
                               child: FlatButton(
-                                child: Text('Update'),
-                                color: Colors.black12,
+                                child: Text('Cập nhật'),
                                 textColor: Colors.black,
                                 shape: RoundedRectangleBorder(
                                     side: BorderSide(
-                                        color: Colors.green,
-                                        width: 1,
-                                        style: BorderStyle.solid),
+                                        width: 1, style: BorderStyle.solid),
                                     borderRadius: BorderRadius.circular(50)),
                                 onPressed: () {
                                   if (_formKey.currentState.validate()) {
                                     //do something
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => LoginDoctor()),
+                                    );
                                   }
                                 },
                               ),
@@ -108,20 +149,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             Container(
                               padding: EdgeInsets.all(5),
                               child: FlatButton(
-                                child: Text('Cancel'),
+                                child: Text('Hủy'),
                                 textColor: Colors.black,
-                                color: Colors.black12,
                                 shape: RoundedRectangleBorder(
                                     side: BorderSide(
-                                        color: Colors.green,
-                                        width: 1,
-                                        style: BorderStyle.solid),
+                                        width: 1, style: BorderStyle.solid),
                                     borderRadius: BorderRadius.circular(50)),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Login()),
+                                        builder: (context) => LoginDoctor()),
                                   );
                                 },
                               ),
