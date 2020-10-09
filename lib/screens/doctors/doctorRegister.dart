@@ -156,7 +156,7 @@ class _DoctorRegisterState extends State<DoctorRegister> {
                         ),
                         Container(
                           padding: EdgeInsets.only(left: 55),
-                          child: Icon(Icons.wc_sharp),
+                          child: Icon(Icons.wc),
                         ),
                       ],
                     ),
