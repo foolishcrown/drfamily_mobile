@@ -1,12 +1,12 @@
-import 'package:dr_family_app/screens/doctors/doctorRegister.dart';
-import 'package:dr_family_app/screens/doctors/verifyEmailForgotPasswordDoctor.dart';
+import 'doctorRegister.dart';
+import 'verifyEmailForgotPasswordDoctor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import 'homeDoctor.dart';
+import 'mainDoctor.dart';
 
 
 class LoginDoctor extends StatefulWidget {
@@ -176,7 +176,7 @@ class _LoginDoctorState extends State<LoginDoctor> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => DoctorHome()),
+                                          builder: (context) => MainDoctor()),
                                     );
                                   }
                                 },
@@ -238,7 +238,7 @@ class _LoginDoctorState extends State<LoginDoctor> {
         signInWithGoogle().then((result) {
           if (result != null) {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => DoctorHome()));
+                context, MaterialPageRoute(builder: (context) => MainDoctor()));
           }
         });
       },

@@ -1,5 +1,5 @@
-import 'package:dr_family_app/screens/doctors/forgotPasswordDoctor.dart';
-import 'package:dr_family_app/screens/doctors/loginDoctor.dart';
+import 'forgotPasswordDoctor.dart';
+import 'loginDoctor.dart';
 import 'package:flutter/material.dart';
 
 class VerifyEmailForgotPasswordDoctor extends StatefulWidget {

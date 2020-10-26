@@ -1,4 +1,4 @@
-import 'package:dr_family_app/screens/doctors/loginDoctor.dart';
+import 'loginDoctor.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordDoctor extends StatefulWidget {

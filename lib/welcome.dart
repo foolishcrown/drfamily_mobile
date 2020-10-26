@@ -1,4 +1,5 @@
-import 'package:dr_family_app/screens/doctors/loginDoctor.dart';
+
+import 'package:dr_family_app/screens/doctor/loginDoctor.dart';
 import 'package:dr_family_app/screens/patients/loginPatient.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
