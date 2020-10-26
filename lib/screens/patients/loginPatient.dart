@@ -1,4 +1,7 @@
-import 'package:dr_family_app/screens/patients/homePatient.dart';
+import 'package:dr_family_app/class/LoadMainPatient.dart';
+
+import 'package:dr_family_app/screens/patients/pacomponents/HomeScreen.dart';
+
 import 'package:dr_family_app/screens/patients/patientRigister.dart';
 import 'package:dr_family_app/screens/patients/verifyEmailForgotPasswordPatient.dart';
 import 'package:flutter/material.dart';
@@ -174,7 +177,7 @@ class _LoginPatientState extends State<LoginPatient> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => PatientHome()),
+                                          builder: (context) => LoadingMainPatient()),
                                     );
                                   }
                                 },
@@ -236,7 +239,7 @@ class _LoginPatientState extends State<LoginPatient> {
         signInWithGoogle().then((result) {
           if (result != null) {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => PatientHome()));
+                context, MaterialPageRoute(builder: (context) => LoadingMainPatient()));
           }
         });
       },
