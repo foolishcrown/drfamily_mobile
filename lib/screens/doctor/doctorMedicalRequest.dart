@@ -8,11 +8,15 @@ class DoctorMedicalRequest extends StatefulWidget {
 
 class _DoctorMedicalRequestState extends State<DoctorMedicalRequest> {
   int _index = 0;
+  final _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+        body: Scrollbar(
+      controller: _scrollController, // <---- Here, the controller
+      isAlwaysShown: true,
+      child: Center(
         child: Container(
           child: SizedBox(
             height: 210, // card height
@@ -59,6 +63,7 @@ class _DoctorMedicalRequestState extends State<DoctorMedicalRequest> {
                                   Container(
                                     child: Icon(
                                       Icons.add_location,
+                                      color: Color.fromRGBO(78, 201, 228, 1),
                                     ),
                                     padding:
                                         EdgeInsets.only(right: 5, bottom: 5),
@@ -73,7 +78,7 @@ class _DoctorMedicalRequestState extends State<DoctorMedicalRequest> {
                               child: Row(
                                 children: [
                                   Container(
-                                    child: Icon(Icons.access_time),
+                                    child: Icon(Icons.access_time, color: Color.fromRGBO(78, 201, 228, 1),),
                                     padding:
                                         EdgeInsets.only(right: 5, bottom: 5),
                                   ),
@@ -84,7 +89,7 @@ class _DoctorMedicalRequestState extends State<DoctorMedicalRequest> {
                                       children: [
                                         Container(
                                           child: Icon(
-                                            Icons.transfer_within_a_station,
+                                            Icons.transfer_within_a_station, color: Color.fromRGBO(78, 201, 228, 1),
                                           ),
                                           padding: EdgeInsets.only(
                                               right: 5, bottom: 5),
@@ -101,7 +106,7 @@ class _DoctorMedicalRequestState extends State<DoctorMedicalRequest> {
                               child: Row(
                                 children: [
                                   Container(
-                                    child: Icon(Icons.add_box),
+                                    child: Icon(Icons.add_box,color: Color.fromRGBO(78, 201, 228, 1),),
                                     padding:
                                         EdgeInsets.only(right: 5, bottom: 5),
                                   ),
@@ -127,7 +132,7 @@ class _DoctorMedicalRequestState extends State<DoctorMedicalRequest> {
           ),
         ),
       ),
-    );
+    ));
   }
 }
 

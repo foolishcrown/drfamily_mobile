@@ -1,20 +1,24 @@
-
 import 'package:flutter/material.dart';
 
 import 'doctorRequestDetail_2.dart';
 
 class DoctorAppointmentSchedule extends StatefulWidget {
   @override
-  _DoctorAppointmentScheduleState createState() => _DoctorAppointmentScheduleState();
+  _DoctorAppointmentScheduleState createState() =>
+      _DoctorAppointmentScheduleState();
 }
 
 class _DoctorAppointmentScheduleState extends State<DoctorAppointmentSchedule> {
   int _index = 0;
+  final _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+        body: Scrollbar(
+          controller: _scrollController, // <---- Here, the controller
+          isAlwaysShown: true,
+      child: Center(
         child: Container(
           child: SizedBox(
             height: 210, // card height
@@ -60,10 +64,10 @@ class _DoctorAppointmentScheduleState extends State<DoctorAppointmentSchedule> {
                                 children: [
                                   Container(
                                     child: Icon(
-                                      Icons.add_location,
+                                      Icons.add_location, color: Color.fromRGBO(78, 201, 228, 1),
                                     ),
                                     padding:
-                                    EdgeInsets.only(right: 5, bottom: 5),
+                                        EdgeInsets.only(right: 5, bottom: 5),
                                   ),
                                   Text(
                                       '263 Khánh Hội, P5, Q4, TP. Hồ Chí Minh '),
@@ -75,9 +79,9 @@ class _DoctorAppointmentScheduleState extends State<DoctorAppointmentSchedule> {
                               child: Row(
                                 children: [
                                   Container(
-                                    child: Icon(Icons.access_time),
+                                    child: Icon(Icons.access_time, color: Color.fromRGBO(78, 201, 228, 1),),
                                     padding:
-                                    EdgeInsets.only(right: 5, bottom: 5),
+                                        EdgeInsets.only(right: 5, bottom: 5),
                                   ),
                                   Text('5:00 P.M - 22/11/2020'),
                                   Padding(
@@ -86,7 +90,7 @@ class _DoctorAppointmentScheduleState extends State<DoctorAppointmentSchedule> {
                                       children: [
                                         Container(
                                           child: Icon(
-                                            Icons.transfer_within_a_station,
+                                            Icons.transfer_within_a_station, color: Color.fromRGBO(78, 201, 228, 1),
                                           ),
                                           padding: EdgeInsets.only(
                                               right: 5, bottom: 5),
@@ -103,9 +107,9 @@ class _DoctorAppointmentScheduleState extends State<DoctorAppointmentSchedule> {
                               child: Row(
                                 children: [
                                   Container(
-                                    child: Icon(Icons.add_box),
+                                    child: Icon(Icons.add_box, color: Color.fromRGBO(78, 201, 228, 1),),
                                     padding:
-                                    EdgeInsets.only(right: 5, bottom: 5),
+                                        EdgeInsets.only(right: 5, bottom: 5),
                                   ),
                                   Text(' Bị cảm sốt'),
                                 ],
@@ -129,6 +133,6 @@ class _DoctorAppointmentScheduleState extends State<DoctorAppointmentSchedule> {
           ),
         ),
       ),
-    );
+    ));
   }
 }

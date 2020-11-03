@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'callPhone.dart';
 
@@ -27,7 +28,7 @@ class _DoctorGoogleMapState extends State<DoctorGoogleMap> {
   String _currentAddress;
 
   final startAddressController = TextEditingController();
-  final destinationAddressController = TextEditingController();
+  final destinationAddressController = TextEditingController(text: 'Lầu 8,9, Tòa nhà CirCO, 222 Điện Biên Phủ, Quận 3, TP. Hồ Chí Minh, Việt Nam');
 
   String _startAddress = '';
   String _destinationAddress = '';
@@ -305,7 +306,6 @@ class _DoctorGoogleMapState extends State<DoctorGoogleMap> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Trở về'),
-        backgroundColor: Colors.green[700],
       ),
       key: _scaffoldKey,
       body: Column(
@@ -450,8 +450,8 @@ class _DoctorGoogleMapState extends State<DoctorGoogleMap> {
                                 ),
                                 SizedBox(height: 5),
                                 RaisedButton(
-                                  onPressed: (_startAddress != '' &&
-                                          _destinationAddress != '')
+                                  onPressed: (_startAddress.isNotEmpty ||
+                                          _destinationAddress.isNotEmpty)
                                       ? () async {
                                           setState(() {
                                             if (markers.isNotEmpty)
@@ -581,13 +581,9 @@ class _DoctorGoogleMapState extends State<DoctorGoogleMap> {
                         shape: RoundedRectangleBorder(
                             side:
                                 BorderSide(width: 1, style: BorderStyle.solid),
-                            borderRadius: BorderRadius.circular(50)),
+                            borderRadius: BorderRadius.circular(10)),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CallPhone(),
-                              ));
+                          launch("tel://0963852741");
                         },
                       ),
                     ),
@@ -599,7 +595,7 @@ class _DoctorGoogleMapState extends State<DoctorGoogleMap> {
                         shape: RoundedRectangleBorder(
                             side:
                                 BorderSide(width: 1, style: BorderStyle.solid),
-                            borderRadius: BorderRadius.circular(50)),
+                            borderRadius: BorderRadius.circular(10)),
                         onPressed: _daDenNoi,
                         // onPressed: () {
                         //   Navigator.push(

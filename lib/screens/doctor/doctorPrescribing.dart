@@ -1,3 +1,4 @@
+import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:dr_family_app/screens/doctor/doctorHome.dart';
 import 'package:dr_family_app/screens/doctor/mainDoctor.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +10,15 @@ class DoctorPrescribing extends StatefulWidget {
 
 // List<DonThuoc> listThuoc = [];
 List<DonThuoc> listThuoc = new List();
+// final sangVal = TextEditingController();
+// final truaVal = TextEditingController();
+// final chieuVal = TextEditingController();
+// final tenThuoc = TextEditingController();
+// final soLuong = TextEditingController();
 
 class _DoctorPrescribingState extends State<DoctorPrescribing> {
+  final _scrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +77,9 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                SizedBox(height: 20,),
+                                SizedBox(
+                                  height: 20,
+                                ),
                                 Container(
                                   child: Text(
                                     'Trần Văn Nam',
@@ -84,7 +94,7 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
-                                      Icons.add_location,
+                                      Icons.add_location,color: Color.fromRGBO(78, 201, 228, 1),
                                     ),
                                     Text(
                                         '13 km - 263 Khánh Hội,P5, Q4, \nTP. Hồ Chí Minh',
@@ -101,12 +111,11 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                     ]),
               ),
             ),
-
             Card(
               child: Container(
                 padding: EdgeInsets.all(10),
                 width: MediaQuery.of(context).size.width,
-                height: 200.0,
+                height: 150.0,
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -117,8 +126,7 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Column(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text("Giới tính",
@@ -132,8 +140,7 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                               ],
                             ),
                             Column(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text("Cân nặng",
@@ -147,8 +154,7 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                               ],
                             ),
                             Column(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text("Chiều cao",
@@ -171,8 +177,7 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Column(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text("Ngày sinh",
@@ -186,8 +191,7 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                               ],
                             ),
                             Column(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text("Điện thoại",
@@ -201,8 +205,7 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                               ],
                             ),
                             Column(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text("Thời gian",
@@ -228,12 +231,12 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                 // controller: passwordController,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(100)),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
                     labelText: 'Chuẩn đoán ban đầu',
                     hintText: 'Nhập chuẩn đoán về bệnh nhân',
                     suffixIcon: Icon(Icons.assignment_sharp)),
-                maxLines: 2,
+                maxLines: 5,
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Vui lòng nhập chuẩn đoán về bệnh nhân';
@@ -287,20 +290,20 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                 //     },
                 //   ),
                 // ),
-                Container(
-                  padding: EdgeInsets.all(5),
-                  child: FlatButton(
-                    child: Text('Kết thúc'),
-                    textColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 1, style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(10)),
-                    onPressed: _xacNhan,
-                  ),
-                ),
               ],
             ),
           ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(5),
+        child: FlatButton(
+          child: Text('Kết thúc'),
+          textColor: Colors.black,
+          shape: RoundedRectangleBorder(
+              side: BorderSide(width: 1, style: BorderStyle.solid),
+              borderRadius: BorderRadius.circular(10)),
+          onPressed: _xacNhan,
         ),
       ),
     );
@@ -341,81 +344,239 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
               ],
             ));
   }
+
   Widget _showTableMedical() {
     if (listThuoc.length > 0) {
-      return DataTable(
-        columns: [
-          DataColumn(
-              label: Text(
-                "Tên thuốc",
-                style: TextStyle(
-                    fontSize: 12.0, fontWeight: FontWeight.w900),
-              )),
-          DataColumn(
-              label: Text(
-                "Số lượng",
-                style: TextStyle(
-                    fontSize: 12.0, fontWeight: FontWeight.w900),
-              )),
-          DataColumn(
-              label: Text(
-                "Liều dùng",
-                style: TextStyle(
-                    fontSize: 12.0, fontWeight: FontWeight.w900),
-              )),
-          DataColumn(
-              label: Text(
-                "Hành động",
-                style: TextStyle(
-                    fontSize: 12.0, fontWeight: FontWeight.w900),
-              )),
-        ],
-        rows: listThuoc
-            .map((e) => DataRow(
-          cells: [
-            new DataCell(
-              Text(e.tenThuoc),
-            ),
-            new DataCell(Text(e.soLuong)),
-            new DataCell(Column(
-              children: [
-                Row(
-                  children: [
-                    Text('Sáng: '),
-                    Text(e.sang),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text('Trưa: '),
-                    Text(e.sang),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text('Chiều: '),
-                    Text(e.sang),
-                  ],
-                )
-              ],
-            )),
-            new DataCell(Row(
-              children: [
-                Text('Xóa'),
-                Text('Cập nhật'),
-              ],
-            ),),
+      return Scrollbar(
+          controller: _scrollController,
+          isAlwaysShown: true,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columns: [
+                  DataColumn(
+                      label: Text(
+                    "Tên thuốc",
+                    style:
+                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.w900),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    "Số lượng",
+                    style:
+                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.w900),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    "Liều dùng",
+                    style:
+                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.w900),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    "Xóa",
+                    style:
+                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.w900),
+                  )),
+                ],
+                rows: listThuoc
+                    .map((e) => DataRow(
+                          cells: [
+                            new DataCell(Container(
+                              width: 150,
+                              child: Text(e.tenThuoc),
+                            )
+                                // Text(e.tenThuoc),
+                                ),
+                            new DataCell(Text(e.soLuong)),
+                            new DataCell(Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text('Sáng: '),
+                                    Text(e.sang),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text('Trưa: '),
+                                    Text(e.sang),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text('Chiều: '),
+                                    Text(e.sang),
+                                  ],
+                                )
+                              ],
+                            )),
+                            new DataCell(
+                              Row(
+                                children: [
+                                  // IconButton(
+                                  //   icon: Icon(Icons.update),
+                                  //   //iconSize: 48,
+                                  //   onPressed: () {
+                                  //     showDialog(context: context, builder: (_) => new AlertDialog(
+                                  //       title: new Text("Cập nhật"),
+                                  //       content: SingleChildScrollView(
+                                  //         child: Column(
+                                  //           children: [
+                                  //             Container(
+                                  //               padding: EdgeInsets.all(3),
+                                  //               child: TextFormField(
+                                  //                 controller: tenThuoc,
+                                  //                 decoration: InputDecoration(
+                                  //                     border: OutlineInputBorder(
+                                  //                       borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  //                     ),
+                                  //                     labelText: 'Tên thuốc',
+                                  //                     hintText: 'Nhập tên thuốc',
+                                  //                     suffixIcon: Icon(Icons.drive_file_rename_outline)),
+                                  //               ),
+                                  //             ),
+                                  //             Container(
+                                  //               padding: EdgeInsets.all(3),
+                                  //               child: TextFormField(
+                                  //                 controller: soLuong,
+                                  //                 decoration: InputDecoration(
+                                  //                     border: OutlineInputBorder(
+                                  //                       borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  //                     ),
+                                  //                     labelText: 'Tổng số lượng thuốc',
+                                  //                     hintText: 'Nhập số lượng',
+                                  //                     suffixIcon: Icon(Icons.drive_file_rename_outline)),
+                                  //                 keyboardType: TextInputType.number,
+                                  //               ),
+                                  //             ),
+                                  //             Container(
+                                  //               padding: EdgeInsets.only(left: 15),
+                                  //               alignment: Alignment.topLeft,
+                                  //               child: Text('Liều dùng: viên/buổi'),
+                                  //             ),
+                                  //             Column(
+                                  //                 mainAxisAlignment: MainAxisAlignment.center,
+                                  //                 children: <Widget>[
+                                  //                   Text("Sáng"),
+                                  //                   TextFormField(
+                                  //                     controller: sangVal,
+                                  //                     decoration: InputDecoration(
+                                  //                         border: OutlineInputBorder(
+                                  //                           borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  //                         ),
+                                  //                         hintText: 'viên/buổi',
+                                  //                         suffixIcon: Icon(Icons.drive_file_rename_outline)),
+                                  //                     keyboardType: TextInputType.number,
+                                  //                   ),
+                                  //                 ]),
+                                  //             Column(
+                                  //                 mainAxisAlignment: MainAxisAlignment.center,
+                                  //                 children: <Widget>[
+                                  //                   Text("Trưa"),
+                                  //                   TextFormField(
+                                  //                     controller: truaVal,
+                                  //                     decoration: InputDecoration(
+                                  //                         border: OutlineInputBorder(
+                                  //                           borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  //                         ),
+                                  //                         hintText: 'viên/buổi',
+                                  //                         suffixIcon: Icon(Icons.drive_file_rename_outline)),
+                                  //                     keyboardType: TextInputType.number,
+                                  //                   ),
+                                  //                 ]),
+                                  //             Column(
+                                  //                 mainAxisAlignment: MainAxisAlignment.center,
+                                  //                 children: <Widget>[
+                                  //                   Text("Chiều"),
+                                  //                   TextFormField(
+                                  //                     controller: chieuVal,
+                                  //                     decoration: InputDecoration(
+                                  //                         border: OutlineInputBorder(
+                                  //                           borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  //                         ),
+                                  //                         hintText: 'viên/buổi',
+                                  //                         suffixIcon: Icon(Icons.drive_file_rename_outline)),
+                                  //                     keyboardType: TextInputType.number,
+                                  //                   ),
+                                  //                 ]),
+                                  //           ],
+                                  //         ),
+                                  //       ),
+                                  //       actions: <Widget>[
+                                  //         FlatButton(
+                                  //           child: Text('Cập nhật'),
+                                  //           onPressed: () {
+                                  //             listThuoc.add(DonThuoc(tenThuoc.text, soLuong.text, sangVal.text,
+                                  //                 truaVal.text, chieuVal.text));
+                                  //             Navigator.push(
+                                  //                 context,
+                                  //                 MaterialPageRoute(
+                                  //                   builder: (context) => DoctorPrescribing(),
+                                  //                 ));
+                                  //           },
+                                  //         )
+                                  //       ],
+                                  //     ));
+                                  //   }
+                                  //
+                                  // ),
+                                  IconButton(
+                                    icon: Icon(Icons.delete_rounded),
+                                    //iconSize: 48,
+                                    onPressed: () {
+                                      showDialog(
+                                          context: context,
+                                          builder: (_) => new AlertDialog(
+                                                title: new Text("Xác Nhận"),
+                                                content: new Text(
+                                                    "Bạn có chắc là muốn xóa !"),
+                                                actions: <Widget>[
+                                                  Row(
+                                                    children: [
+                                                      FlatButton(
+                                                        child: Text('Đồng ý'),
+                                                        onPressed: () {
+                                                          listThuoc.remove(e);
+                                                          Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        DoctorPrescribing(),
+                                                              ));
+                                                        },
+                                                      ),
+                                                      FlatButton(
+                                                        child: Text('Không!'),
+                                                        onPressed: () {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                      )
+                                                    ],
+                                                  ),
+                                                ],
+                                              ));
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
 
-            // new DataCell(Text(e.tenThuoc)),
-          ],
-        ))
-            .toList(),
-      );
+                            // new DataCell(Text(e.tenThuoc)),
+                          ],
+                        ))
+                    .toList(),
+              ),
+            ),
+          ));
     } else {
       print('khong co data');
     }
   }
-
 }
 
 class DoctorMedical extends StatefulWidget {
@@ -449,12 +610,43 @@ class _DoctorMedicalState extends State<DoctorMedical> {
           children: [
             Container(
               padding: EdgeInsets.all(3),
-              child: TextFormField(
+              // child: TextFormField(
+              //   controller: tenThuoc,
+              //   decoration: InputDecoration(
+              //       border: OutlineInputBorder(
+              //         borderRadius: BorderRadius.all(Radius.circular(10)),
+              //       ),
+              //       labelText: 'Tên thuốc',
+              //       hintText: 'Nhập tên thuốc',
+              //       suffixIcon: Icon(Icons.drive_file_rename_outline)),
+              // ),
+              child: SimpleAutoCompleteTextField(
                 controller: tenThuoc,
+                suggestions: [
+                  "amoxicillin",
+                  "amoxicillin + clavulanic acid",
+                  "ampicillin",
+                  "benzathine benzylpenicillin",
+                  "benzylpenicillin",
+                  "cefalexin",
+                  "cefazolin",
+                  "cefixime",
+                  "cefotaxime",
+                  "ceftriaxone",
+                  "phenoxymethylpenicillin",
+                  "piperacillin + tazobactam",
+                  "procaine benzyl penicillin",
+                  "amikacin",
+                  "cefalexin",
+                  "azithromycin",
+                  "ciprofloxacin",
+                  "clarithromycin",
+                ],
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
+                    filled: true,
                     labelText: 'Tên thuốc',
                     hintText: 'Nhập tên thuốc',
                     suffixIcon: Icon(Icons.drive_file_rename_outline)),

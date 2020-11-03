@@ -20,21 +20,49 @@ class _DoctorHomeState extends State<DoctorHome> {
           Container(
             padding: EdgeInsets.only(left: 10, top: 25),
             width: 500,
-            child: Text(
-              'Yêu cầu ',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
+            child: Row(
+              children: [
+                Text(
+                  'Yêu cầu ',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(width: 180,),
+                Text(
+                  'Tiếp theo ',
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.red),
+                ),
+                Icon(
+                  Icons.arrow_forward_outlined,
+                  size: 15,
+                  color: Colors.red,
+                ),
+              ],
+            )
           ),
           Expanded(
             child: DoctorMedicalRequest(),
           ),
           Container(
-            padding: EdgeInsets.all(10),
-            width: 500,
-            child: Text(
-              'Lịch hẹn ',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
+              padding: EdgeInsets.only(left: 10, top: 25),
+              width: 500,
+              child: Row(
+                children: [
+                  Text(
+                    'Lịch hẹn ',
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 170,),
+                  Text(
+                    'Tiếp theo ',
+                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.red),
+                  ),
+                  Icon(
+                    Icons.arrow_forward_outlined,
+                    size: 15,
+                    color: Colors.red,
+                  ),
+                ],
+              )
           ),
           Expanded(
             child: DoctorAppointmentSchedule(),

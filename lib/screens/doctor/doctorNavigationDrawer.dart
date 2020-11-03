@@ -1,4 +1,5 @@
 import 'package:dr_family_app/screens/doctor/doctorHistory.dart';
+import 'package:dr_family_app/screens/doctor/doctorPersonal.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -47,11 +48,21 @@ class _DoctorNavigationDrawerState extends State<DoctorNavigationDrawer> {
                 backgroundImage: NetworkImage(
                     "https://randomuser.me/api/portraits/men/46.jpg")),
           ),
-          new ListTile(
-            leading: Icon(Icons.notifications_active_rounded),
-            title: new Text("Thông báo"),
-            onTap: _showNotification,
-          ),
+          // new ListTile(
+          //   leading: Icon(Icons.notifications_active_rounded),
+          //   title: new Text("Thông báo"),
+          //   onTap: _showNotification,
+          // ),
+          // new ListTile(
+          //     leading: Icon(Icons.account_circle),
+          //     title: new Text("Thông tin cá nhân "),
+          //     onTap: () {
+          //       Navigator.push(
+          //           context,
+          //           MaterialPageRoute(
+          //             builder: (context) => DoctorPersonal(),
+          //           ));
+          //     }),
           new ListTile(
               leading: Icon(Icons.history),
               title: new Text("Lịch sử khám bệnh "),

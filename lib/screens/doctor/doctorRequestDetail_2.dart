@@ -79,7 +79,7 @@ class _DoctorRequestDetail_2State extends State<DoctorRequestDetail_2> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
-                                        Icons.add_location,
+                                        Icons.add_location, color: Color.fromRGBO(78, 201, 228, 1),
                                       ),
                                       Text(
                                           '13 km - 263 Khánh Hội,P5, Q4, \nTP. Hồ Chí Minh',
@@ -111,7 +111,7 @@ class _DoctorRequestDetail_2State extends State<DoctorRequestDetail_2> {
                                                   Image(
                                                       image: AssetImage(
                                                           "assets/images/hosobenhan.png"),
-                                                      height: 35.0), // icon
+                                                      height: 35.0, color: Color.fromRGBO(78, 201, 228, 1),), // icon
                                                   Text(
                                                     "Bệnh án",
                                                     style:
@@ -143,7 +143,7 @@ class _DoctorRequestDetail_2State extends State<DoctorRequestDetail_2> {
                                                   Image(
                                                       image: AssetImage(
                                                           "assets/images/suckhoetongquat.png"),
-                                                      height: 35.0), // icon
+                                                      height: 35.0, color: Color.fromRGBO(78, 201, 228, 1),), // icon
                                                   Text(
                                                     "Tổng quát",
                                                     style:
@@ -182,7 +182,7 @@ class _DoctorRequestDetail_2State extends State<DoctorRequestDetail_2> {
                                                   Image(
                                                       image: AssetImage(
                                                           "assets/images/dienthoai.png"),
-                                                      height: 35.0), // icon
+                                                      height: 35.0, color: Color.fromRGBO(78, 201, 228, 1),), // icon
                                                   Text(
                                                     "Gọi",
                                                     style:
@@ -211,7 +211,7 @@ class _DoctorRequestDetail_2State extends State<DoctorRequestDetail_2> {
                 child: Container(
                   padding: EdgeInsets.all(10),
                   width: MediaQuery.of(context).size.width,
-                  height: 200.0,
+                  height: 150.0,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
@@ -333,19 +333,37 @@ class _DoctorRequestDetail_2State extends State<DoctorRequestDetail_2> {
                       height: 15,
                     ),
                     Container(
-                      padding: EdgeInsets.only(right: 225),
+                      //padding: EdgeInsets.only(right: 245),
                       child: Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.only(right: 20),
+                            padding: EdgeInsets.only(right: 260, left: 5),
                             child: Text("Triệu chứng",
                                 style: TextStyle(
                                     fontWeight: FontWeight.w400,
                                     color: Colors.grey)),
                           ),
-                          Text("Bị cảm sốt",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300, fontSize: 21)),
+                          Row(
+
+                            children: [
+
+                              Card(
+                                child: Text("Bị cảm sốt",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400, fontSize: 21)),
+                              ),
+                              Card(
+                                child: Text("Nhứt đầu",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400, fontSize: 21)),
+                              ),
+                              Card(
+                                child: Text("Đau họng",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400, fontSize: 21)),
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),
@@ -356,29 +374,81 @@ class _DoctorRequestDetail_2State extends State<DoctorRequestDetail_2> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          child: Text(
-                              "Mô tả triệu chứng hiện tại của bệnh nhân",
+                          child: Text("Mô tả triệu chứng hiện tại của bệnh nhân",
                               style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.grey)),
+                                  fontWeight: FontWeight.w400, color: Colors.grey)),
                           padding: EdgeInsets.only(left: 10),
                         ),
                         Container(
                           padding: EdgeInsets.all(5),
                           child: Text(
                               ' Ớn lạnh ho hắt hơi sổ mũi đau họng đau cơ đau đầu cảm thấy yếu hoặc '
-                              'mệt mỏi mắt nhạy cảm với ánh sáng dạ dày khó chịu',
+                                  'mệt mỏi mắt nhạy cảm với ánh sáng dạ dày khó chịu',
                               textAlign: TextAlign.justify,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 10,
+
                               style: TextStyle(
-                                  fontWeight: FontWeight.w300, fontSize: 16)),
+                                  fontWeight: FontWeight.w400, fontSize: 21)),
                         ),
                       ],
                     ),
                   ],
                 ),
               ),
+              // Card(
+              //   child: Column(
+              //     children: [
+              //       SizedBox(
+              //         height: 15,
+              //       ),
+              //       Container(
+              //         padding: EdgeInsets.only(right: 225),
+              //         child: Column(
+              //           children: [
+              //             Container(
+              //               padding: EdgeInsets.only(right: 20),
+              //               child: Text("Triệu chứng",
+              //                   style: TextStyle(
+              //                       fontWeight: FontWeight.w400,
+              //                       color: Colors.grey)),
+              //             ),
+              //             Text("Bị cảm sốt",
+              //                 style: TextStyle(
+              //                     fontWeight: FontWeight.w300, fontSize: 21)),
+              //           ],
+              //         ),
+              //       ),
+              //       SizedBox(
+              //         height: 15,
+              //       ),
+              //       Column(
+              //         crossAxisAlignment: CrossAxisAlignment.start,
+              //         children: [
+              //           Container(
+              //             child: Text(
+              //                 "Mô tả triệu chứng hiện tại của bệnh nhân",
+              //                 style: TextStyle(
+              //                     fontWeight: FontWeight.w400,
+              //                     color: Colors.grey)),
+              //             padding: EdgeInsets.only(left: 10),
+              //           ),
+              //           Container(
+              //             padding: EdgeInsets.all(5),
+              //             child: Text(
+              //                 ' Ớn lạnh ho hắt hơi sổ mũi đau họng đau cơ đau đầu cảm thấy yếu hoặc '
+              //                 'mệt mỏi mắt nhạy cảm với ánh sáng dạ dày khó chịu',
+              //                 textAlign: TextAlign.justify,
+              //                 overflow: TextOverflow.ellipsis,
+              //                 maxLines: 10,
+              //                 style: TextStyle(
+              //                     fontWeight: FontWeight.w300, fontSize: 16)),
+              //           ),
+              //         ],
+              //       ),
+              //     ],
+              //   ),
+              // ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
