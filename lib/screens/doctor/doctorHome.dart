@@ -1,8 +1,12 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'doctorAppointmentSchedule.dart';
+import 'doctorEmergency.dart';
 import 'doctorMedicalRequest.dart';
 import 'package:flutter/material.dart';
+
+import 'doctorNavigationDrawer.dart';
 
 class DoctorHome extends StatefulWidget {
   @override
@@ -18,27 +22,31 @@ class _DoctorHomeState extends State<DoctorHome> {
       body: Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(left: 10, top: 25),
-            width: 500,
-            child: Row(
-              children: [
-                Text(
-                  'Yêu cầu ',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(width: 180,),
-                Text(
-                  'Tiếp theo ',
-                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.red),
-                ),
-                Icon(
-                  Icons.arrow_forward_outlined,
-                  size: 15,
-                  color: Colors.red,
-                ),
-              ],
-            )
-          ),
+              padding: EdgeInsets.only(left: 10, top: 25),
+              width: 500,
+              child: Row(
+                children: [
+                  Text(
+                    'Yêu cầu ',
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    width: 180,
+                  ),
+                  Text(
+                    'Tiếp theo ',
+                    style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red),
+                  ),
+                  Icon(
+                    Icons.arrow_forward_outlined,
+                    size: 15,
+                    color: Colors.red,
+                  ),
+                ],
+              )),
           Expanded(
             child: DoctorMedicalRequest(),
           ),
@@ -51,10 +59,15 @@ class _DoctorHomeState extends State<DoctorHome> {
                     'Lịch hẹn ',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(width: 170,),
+                  SizedBox(
+                    width: 170,
+                  ),
                   Text(
                     'Tiếp theo ',
-                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.red),
+                    style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red),
                   ),
                   Icon(
                     Icons.arrow_forward_outlined,
@@ -62,8 +75,7 @@ class _DoctorHomeState extends State<DoctorHome> {
                     color: Colors.red,
                   ),
                 ],
-              )
-          ),
+              )),
           Expanded(
             child: DoctorAppointmentSchedule(),
           ),

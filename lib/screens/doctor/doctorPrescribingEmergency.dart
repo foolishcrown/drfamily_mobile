@@ -1,4 +1,5 @@
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
+import 'package:dr_family_app/screens/doctor/doctorTab.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -365,7 +366,7 @@ class _DoctorPrescribingEmergencyState extends State<DoctorPrescribingEmergency>
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MainDoctor(),
+                          builder: (context) => DoctorTab(),
                         ));
                   },
                 ),
@@ -403,13 +404,13 @@ class _DoctorPrescribingEmergencyState extends State<DoctorPrescribingEmergency>
                       )),
                   DataColumn(
                       label: Text(
-                        "Số lượng",
+                        "Số lượng \n(viên/gói)",
                         style:
                         TextStyle(fontSize: 12.0, fontWeight: FontWeight.w900),
                       )),
                   DataColumn(
                       label: Text(
-                        "Liều dùng",
+                        "Liều dùng\n(viên-gói/buổi)",
                         style:
                         TextStyle(fontSize: 12.0, fontWeight: FontWeight.w900),
                       )),
@@ -424,7 +425,7 @@ class _DoctorPrescribingEmergencyState extends State<DoctorPrescribingEmergency>
                     .map((e) => DataRow(
                   cells: [
                     new DataCell(Container(
-                      width: 150,
+                      width: 100,
                       child: Text(e.tenThuoc),
                     )
                       // Text(e.tenThuoc),
@@ -750,6 +751,7 @@ class _DoctorMedicalState extends State<DoctorMedical> {
           onPressed: () {
             listThuoc.add(DonThuoc(tenThuoc.text, soLuong.text, sangVal.text,
                 truaVal.text, chieuVal.text));
+
             Navigator.push(
                 context,
                 MaterialPageRoute(

@@ -1,3 +1,6 @@
+import 'package:dr_family_app/screens/doctor/doctorHome.dart';
+import 'package:dr_family_app/screens/doctor/doctorTab.dart';
+
 import 'doctorRegister.dart';
 import 'verifyEmailForgotPasswordDoctor.dart';
 import 'package:flutter/material.dart';
@@ -176,7 +179,7 @@ class _LoginDoctorState extends State<LoginDoctor> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => MainDoctor()),
+                                          builder: (context) => DoctorTab()),
                                     );
                                   }
                                 },
@@ -238,7 +241,7 @@ class _LoginDoctorState extends State<LoginDoctor> {
         signInWithGoogle().then((result) {
           if (result != null) {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => MainDoctor()));
+                context, MaterialPageRoute(builder: (context) => DoctorTab()));
           }
         });
       },

@@ -272,12 +272,12 @@ class _DoctorHistoryDetailState extends State<DoctorHistoryDetail> {
               )),
               DataColumn(
                   label: Text(
-                "Số lượng",
+                "Số lượng\n(viên/gói)",
                 style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w900),
               )),
               DataColumn(
                   label: Text(
-                "Liều dùng",
+                "Liều dùng\n(viên-gói/buổi)",
                 style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w900),
               )),
             ],

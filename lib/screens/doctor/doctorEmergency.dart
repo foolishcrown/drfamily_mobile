@@ -1,3 +1,4 @@
+import 'package:dr_family_app/screens/doctor/doctorTab.dart';
 import 'package:dr_family_app/screens/doctor/googleMapEmergency.dart';
 import 'package:dr_family_app/screens/doctor/videoApp.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +14,6 @@ class _DoctorEmergencyState extends State<DoctorEmergency> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Thông tin chi tiết'),
-        centerTitle: true,
-      ),
       body: SingleChildScrollView(
           child: Column(
         children: [
@@ -375,7 +372,7 @@ class _DoctorEmergencyState extends State<DoctorEmergency> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => MainDoctor(),
+                              builder: (context) => DoctorTab(),
                             ));
                       },
                     ),

@@ -1,5 +1,6 @@
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:dr_family_app/screens/doctor/doctorHome.dart';
+import 'package:dr_family_app/screens/doctor/doctorTab.dart';
 import 'package:dr_family_app/screens/doctor/mainDoctor.dart';
 import 'package:flutter/material.dart';
 
@@ -325,7 +326,7 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => MainDoctor(),
+                              builder: (context) => DoctorTab(),
                             ));
                       },
                     ),
@@ -364,13 +365,13 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                   )),
                   DataColumn(
                       label: Text(
-                    "Số lượng",
+                    "Số lượng \n(viên/gói)",
                     style:
                         TextStyle(fontSize: 12.0, fontWeight: FontWeight.w900),
                   )),
                   DataColumn(
                       label: Text(
-                    "Liều dùng",
+                    "Liều dùng\n(viên-gói/buổi)",
                     style:
                         TextStyle(fontSize: 12.0, fontWeight: FontWeight.w900),
                   )),
@@ -385,7 +386,7 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                     .map((e) => DataRow(
                           cells: [
                             new DataCell(Container(
-                              width: 150,
+                              width: 100,
                               child: Text(e.tenThuoc),
                             )
                                 // Text(e.tenThuoc),

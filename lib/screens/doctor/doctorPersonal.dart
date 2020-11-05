@@ -1,4 +1,6 @@
+import 'package:dr_family_app/screens/doctor/doctorTab.dart';
 import 'package:dr_family_app/screens/doctor/doctorUpdateProfile.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DoctorPersonal extends StatefulWidget {
@@ -10,82 +12,582 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: Column(
-        children: [
-          UserAccountsDrawerHeader(
-            accountName: new Text("Nguyễn Văn Minh", style: TextStyle(color: Colors.white),),
-            accountEmail: new Text("123 Nguyễn Trãi, Tp Hồ Chí Minh", style: TextStyle(color: Colors.white)),
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new ExactAssetImage('assets/images/backgroundlake.jpg'),
-                fit: BoxFit.cover,
+      appBar: AppBar(
+        title: Text("Trở về"),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(5),
+          child: Column(
+            children: [
+              Center(
+                child: CircleAvatar(
+                  radius: 70,
+                  backgroundColor: Color(0xffFDCF09),
+                  child: CircleAvatar(
+                    radius: 70,
+                    backgroundImage: NetworkImage(
+                        "https://randomuser.me/api/portraits/men/46.jpg"),
+                  ),
+                ),
               ),
-            ),
-            currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage(
-                    "https://randomuser.me/api/portraits/men/46.jpg")),
-          ),
-          Container(
-            child: Text(
-              "Họ và tên: ",
-              textAlign: TextAlign.left,
-              style:
-              TextStyle(fontSize: 15.0, fontWeight: FontWeight.w700),
-            ),
-            padding: EdgeInsets.all(5),
-          ),
-          Container(
-            child: Text(
-              "Giới tính: ",
-              textAlign: TextAlign.left,
-              style:
-              TextStyle(fontSize: 15.0, fontWeight: FontWeight.w700),
-            ),
-            padding: EdgeInsets.all(5),
-          ),
+              Card(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Thông tin cá nhân",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 120,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Icon(
+                          Icons.account_circle,
+                          color: Color.fromRGBO(78, 201, 228, 1),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Text("Nguyễn Văn Minh",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 15)),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Icon(
+                          Icons.wc,
+                          color: Color.fromRGBO(78, 201, 228, 1),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Text("Nam",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 15)),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Icon(
+                          Icons.date_range,
+                          color: Color.fromRGBO(78, 201, 228, 1),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Text("01/01/1975",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 15)),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Icon(
+                          Icons.phone,
+                          color: Color.fromRGBO(78, 201, 228, 1),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Text("0963852456",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 15)),
+                        SizedBox(
+                          width: 165,
+                        ),
+                        SizedBox.fromSize(
+                          size: Size(25, 25),
+                          // button width and height
+                          child: ClipOval(
+                            child: Material(
+                              //color: Colors.orange, // button color
+                              child: InkWell(
+                                //  splashColor: Colors.green, // splash color
+                                onTap: () {},
+                                // button pressed
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.drive_file_rename_outline,
+                                      color: Color.fromRGBO(78, 201, 228, 1),
+                                    ),
+                                    // text
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Icon(
+                          Icons.add_location_rounded,
+                          color: Color.fromRGBO(78, 201, 228, 1),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Container(
+                          width: 240,
+                          child: Text(
+                            "215B37 Nguyễn Văn Hưởng, P, Quận 2, Thành phố Hồ Chí Minh",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 15),
+                          ),
+                        ),
+                        SizedBox.fromSize(
+                          size: Size(25, 25),
+                          // button width and height
+                          child: ClipOval(
+                            child: Material(
+                              //color: Colors.orange, // button color
+                              child: InkWell(
+                                //  splashColor: Colors.green, // splash color
+                                onTap: () {},
+                                // button pressed
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.drive_file_rename_outline,
+                                      color: Color.fromRGBO(78, 201, 228, 1),
+                                    ),
+                                    // text
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                  ],
+                ),
+              ),
+              Card(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Thông tin nghề ngiệp",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 120,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 25,
+                        ),
+                        ImageIcon(
+                          AssetImage("assets/images/doctor.png"),
+                          color: Color.fromRGBO(78, 201, 228, 1),
+                          size: 27,
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Container(
+                          width: 240,
+                          child: Text(
+                            "Bệnh viện quân y 175",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 15),
+                          ),
+                        ),
+                        SizedBox.fromSize(
+                          size: Size(25, 25),
+                          // button width and height
+                          child: ClipOval(
+                            child: Material(
+                              //color: Colors.orange, // button color
+                              child: InkWell(
+                                //  splashColor: Colors.green, // splash color
+                                onTap: () {},
+                                // button pressed
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.drive_file_rename_outline,
+                                      color: Color.fromRGBO(78, 201, 228, 1),
+                                    ),
+                                    // text
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
 
-          Container(
-            child: Text(
-              "Ngày sinh: ",
-              textAlign: TextAlign.left,
-              style:
-              TextStyle(fontSize: 15.0, fontWeight: FontWeight.w700),
-            ),
-            padding: EdgeInsets.all(5),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 25,
+                        ),
+                        ImageIcon(
+                          AssetImage("assets/images/doctor.png"),
+                          color: Color.fromRGBO(78, 201, 228, 1),
+                          size: 27,
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Container(
+                          width: 240,
+                          child: Text(
+                            "Khoa nhi, Khoa nội, Khoa ngoại, Tai - Mũi - Họng",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 10,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 15),
+                          ),
+                        ),
+                        SizedBox.fromSize(
+                          size: Size(25, 25),
+                          // button width and height
+                          child: ClipOval(
+                            child: Material(
+                              //color: Colors.orange, // button color
+                              child: InkWell(
+                                //  splashColor: Colors.green, // splash color
+                                onTap: () {},
+                                // button pressed
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.drive_file_rename_outline,
+                                      color: Color.fromRGBO(78, 201, 228, 1),
+                                    ),
+                                    // text
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 25,
+                        ),
+                        ImageIcon(
+                          AssetImage("assets/images/doctor.png"),
+                          color: Color.fromRGBO(78, 201, 228, 1),
+                          size: 27,
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Container(
+                          width: 240,
+                          child: Text(
+                            "15 năm kinh nghiệm",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 15),
+                          ),
+                        ),
+                        SizedBox.fromSize(
+                          size: Size(25, 25),
+                          // button width and height
+                          child: ClipOval(
+                            child: Material(
+                              //color: Colors.orange, // button color
+                              child: InkWell(
+                                //  splashColor: Colors.green, // splash color
+                                onTap: () {},
+                                // button pressed
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.drive_file_rename_outline,
+                                      color: Color.fromRGBO(78, 201, 228, 1),
+                                    ),
+                                    // text
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 25,
+                        ),
+                        ImageIcon(
+                          AssetImage("assets/images/doctor.png"),
+                          color: Color.fromRGBO(78, 201, 228, 1),
+                          size: 27,
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Container(
+                          width: 240,
+                          child: Text(
+                            "Bác sĩ chuyên khoa 1",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 15),
+                          ),
+                        ),
+                        SizedBox.fromSize(
+                          size: Size(25, 25),
+                          // button width and height
+                          child: ClipOval(
+                            child: Material(
+                              //color: Colors.orange, // button color
+                              child: InkWell(
+                                //  splashColor: Colors.green, // splash color
+                                onTap: () {},
+                                // button pressed
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.drive_file_rename_outline,
+                                      color: Color.fromRGBO(78, 201, 228, 1),
+                                    ),
+                                    // text
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 25,
+                        ),
+                        ImageIcon(
+                          AssetImage("assets/images/clipboard.png"),
+                          color: Color.fromRGBO(78, 201, 228, 1),
+                          size: 27,
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Container(
+                          width: 240,
+                          child: Text(
+                            "Đau khớp, đau xương, đau cơ,...",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 15),
+                          ),
+                        ),
+                        SizedBox.fromSize(
+                          size: Size(25, 25),
+                          // button width and height
+                          child: ClipOval(
+                            child: Material(
+                              //color: Colors.orange, // button color
+                              child: InkWell(
+                                //  splashColor: Colors.green, // splash color
+                                onTap: () {},
+                                // button pressed
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.drive_file_rename_outline,
+                                      color: Color.fromRGBO(78, 201, 228, 1),
+                                    ),
+                                    // text
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 25,
+                        ),
+                        ImageIcon(
+
+                          AssetImage("assets/images/price.png"),
+                          color: Color.fromRGBO(78, 201, 228, 1),
+                          size: 27,
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        Container(
+                          width: 240,
+                          child: Text(
+                            "300000 đồng/lần khám bệnh",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 15),
+                          ),
+                        ),
+                        SizedBox.fromSize(
+                          size: Size(25, 25),
+                          // button width and height
+                          child: ClipOval(
+                            child: Material(
+                              //color: Colors.orange, // button color
+                              child: InkWell(
+                                //  splashColor: Colors.green, // splash color
+                                onTap: () {},
+                                // button pressed
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.drive_file_rename_outline,
+                                      color: Color.fromRGBO(78, 201, 228, 1),
+                                    ),
+                                    // text
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          Container(
-            child: Text(
-              "Số điện thoại : ",
-              textAlign: TextAlign.left,
-              style:
-              TextStyle(fontSize: 15.0, fontWeight: FontWeight.w700),
-            ),
-            padding: EdgeInsets.all(5),
-          ),
-          Container(
-            child: Text(
-              "Địa chỉ : ",
-              textAlign: TextAlign.left,
-              style:
-              TextStyle(fontSize: 15.0, fontWeight: FontWeight.w700),
-            ),
-            padding: EdgeInsets.all(5),
-          ),
-          Container(
-            padding: EdgeInsets.all(5),
-            child: FlatButton(
-              child: Text('Cập nhật thông tin'),
-              textColor: Colors.black,
-              shape: RoundedRectangleBorder(
-                  side: BorderSide(width: 1, style: BorderStyle.solid),
-                  borderRadius: BorderRadius.circular(50)),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => DoctorUpdateProfile(),));
-              },
-            ),
-          ),
-        ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(5),
+        child: FlatButton(
+          child: Text('Cập nhật thông tin'),
+          textColor: Colors.black,
+          shape: RoundedRectangleBorder(
+              side: BorderSide(width: 1, style: BorderStyle.solid),
+              borderRadius: BorderRadius.circular(10)),
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (_) => new AlertDialog(
+                  title: new Text("Xác Nhận"),
+                  content: new Text(
+                      "Thông tin bạn vừa cập nhật sẽ được gửi lên admin để kiểm tra."),
+                  actions: <Widget>[
+                    FlatButton(
+                      child: Text('Đồng ý'),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DoctorTab(),
+                            ));
+                      },
+                    ),
+                  ],
+                ));
+          },
+        ),
       ),
     );
   }

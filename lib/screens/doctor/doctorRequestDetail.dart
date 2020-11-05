@@ -1,4 +1,5 @@
 import 'package:dr_family_app/screens/doctor/doctorMedicalRequest.dart';
+import 'package:dr_family_app/screens/doctor/doctorTab.dart';
 import 'package:dr_family_app/screens/doctor/mainDoctor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -80,7 +81,8 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
-                                        Icons.add_location, color: Color.fromRGBO(78, 201, 228, 1),
+                                        Icons.add_location,
+                                        color: Color.fromRGBO(78, 201, 228, 1),
                                       ),
                                       Text(
                                           '13 km - 263 Khánh Hội,P5, Q4, \nTP. Hồ Chí Minh',
@@ -110,9 +112,12 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                                                     MainAxisAlignment.center,
                                                 children: <Widget>[
                                                   Image(
-                                                      image: AssetImage(
-                                                          "assets/images/hosobenhan.png"),
-                                                      height: 35.0,  color: Color.fromRGBO(78, 201, 228, 1),),
+                                                    image: AssetImage(
+                                                        "assets/images/hosobenhan.png"),
+                                                    height: 35.0,
+                                                    color: Color.fromRGBO(
+                                                        78, 201, 228, 1),
+                                                  ),
                                                   // icon
                                                   Text(
                                                     "Bệnh án",
@@ -143,14 +148,19 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                                                     MainAxisAlignment.center,
                                                 children: <Widget>[
                                                   Image(
-                                                      image: AssetImage(
-                                                          "assets/images/suckhoetongquat.png"),
-                                                      height: 35.0,color: Color.fromRGBO(78, 201, 228, 1),), // icon
+                                                    image: AssetImage(
+                                                        "assets/images/suckhoetongquat.png"),
+                                                    height: 35.0,
+                                                    color: Color.fromRGBO(
+                                                        78, 201, 228, 1),
+                                                  ),
+                                                  // icon
                                                   Text(
                                                     "Tổng quát",
                                                     style:
                                                         TextStyle(fontSize: 11),
-                                                  ), // text
+                                                  ),
+                                                  // text
                                                 ],
                                               ),
                                             ),
@@ -182,14 +192,19 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                                                     MainAxisAlignment.center,
                                                 children: <Widget>[
                                                   Image(
-                                                      image: AssetImage(
-                                                          "assets/images/dienthoai.png"),
-                                                      height: 35.0, color: Color.fromRGBO(78, 201, 228, 1),), // icon
+                                                    image: AssetImage(
+                                                        "assets/images/dienthoai.png"),
+                                                    height: 35.0,
+                                                    color: Color.fromRGBO(
+                                                        78, 201, 228, 1),
+                                                  ),
+                                                  // icon
                                                   Text(
                                                     "Gọi",
                                                     style:
                                                         TextStyle(fontSize: 11),
-                                                  ), // text
+                                                  ),
+                                                  // text
                                                 ],
                                               ),
                                             ),
@@ -400,23 +415,24 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                                     color: Colors.grey)),
                           ),
                           Row(
-
                             children: [
-
                               Card(
                                 child: Text("Bị cảm sốt",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.w400, fontSize: 21)),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 21)),
                               ),
                               Card(
                                 child: Text("Nhứt đầu",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.w400, fontSize: 21)),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 21)),
                               ),
                               Card(
                                 child: Text("Đau họng",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.w400, fontSize: 21)),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 21)),
                               ),
                             ],
                           ),
@@ -430,20 +446,21 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          child: Text("Mô tả triệu chứng hiện tại của bệnh nhân",
+                          child: Text(
+                              "Mô tả triệu chứng hiện tại của bệnh nhân",
                               style: TextStyle(
-                                  fontWeight: FontWeight.w400, color: Colors.grey)),
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.grey)),
                           padding: EdgeInsets.only(left: 10),
                         ),
                         Container(
                           padding: EdgeInsets.all(5),
                           child: Text(
                               ' Ớn lạnh ho hắt hơi sổ mũi đau họng đau cơ đau đầu cảm thấy yếu hoặc '
-                                  'mệt mỏi mắt nhạy cảm với ánh sáng dạ dày khó chịu',
+                              'mệt mỏi mắt nhạy cảm với ánh sáng dạ dày khó chịu',
                               textAlign: TextAlign.justify,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 10,
-
                               style: TextStyle(
                                   fontWeight: FontWeight.w400, fontSize: 21)),
                         ),
@@ -459,7 +476,10 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                     padding: EdgeInsets.all(5),
                     child: FlatButton(
                       color: Colors.lightGreenAccent,
-                      child: Text('Chấp nhận', style: TextStyle(fontSize: 20),),
+                      child: Text(
+                        'Chấp nhận',
+                        style: TextStyle(fontSize: 20),
+                      ),
                       textColor: Colors.black,
                       shape: RoundedRectangleBorder(
                           side: BorderSide(width: 1, style: BorderStyle.solid),
@@ -471,7 +491,10 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                     padding: EdgeInsets.all(5),
                     child: FlatButton(
                       color: Colors.redAccent,
-                      child: Text('Từ chối', style: TextStyle(fontSize: 20),),
+                      child: Text(
+                        'Từ chối',
+                        style: TextStyle(fontSize: 20),
+                      ),
                       textColor: Colors.black,
                       shape: RoundedRectangleBorder(
                           side: BorderSide(width: 1, style: BorderStyle.solid),
@@ -485,7 +508,6 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
           ),
         ),
       ),
-
     );
   }
 
@@ -557,8 +579,8 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                         DataCell(Text("Có")),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text(
-                            "6. Bạn có từng phẫu thuật trước đây không?")),
+                        DataCell(
+                            Text("6. Bạn có từng phẫu thuật trước đây không?")),
                         DataCell(Text("Không")),
                       ]),
                       DataRow(cells: [
@@ -652,18 +674,14 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => MainDoctor(),
+                              builder: (context) => DoctorTab(),
                             ));
                       },
                     ),
                     FlatButton(
                       child: Text('Không!'),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MainDoctor(),
-                            ));
+                        Navigator.of(context).pop();
                       },
                     )
                   ],
@@ -687,7 +705,7 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => MainDoctor(),
+                              builder: (context) => DoctorTab(),
                             ));
                       },
                     ),

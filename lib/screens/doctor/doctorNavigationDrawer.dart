@@ -1,5 +1,6 @@
 import 'package:dr_family_app/screens/doctor/doctorHistory.dart';
 import 'package:dr_family_app/screens/doctor/doctorPersonal.dart';
+import 'package:dr_family_app/screens/doctor/doctorService.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -53,16 +54,17 @@ class _DoctorNavigationDrawerState extends State<DoctorNavigationDrawer> {
           //   title: new Text("Thông báo"),
           //   onTap: _showNotification,
           // ),
-          // new ListTile(
-          //     leading: Icon(Icons.account_circle),
-          //     title: new Text("Thông tin cá nhân "),
-          //     onTap: () {
-          //       Navigator.push(
-          //           context,
-          //           MaterialPageRoute(
-          //             builder: (context) => DoctorPersonal(),
-          //           ));
-          //     }),
+
+          new ListTile(
+              leading: Icon(Icons.medical_services),
+              title: new Text("Dịch vụ y tế "),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DoctorService(),
+                    ));
+              }),
           new ListTile(
               leading: Icon(Icons.history),
               title: new Text("Lịch sử khám bệnh "),
@@ -80,6 +82,16 @@ class _DoctorNavigationDrawerState extends State<DoctorNavigationDrawer> {
           //       Navigator.pop(context);
           //     }),
           // new Divider(),
+          new ListTile(
+              leading: Icon(Icons.account_circle),
+              title: new Text("Thông tin cá nhân "),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DoctorPersonal(),
+                    ));
+              }),
           new ListTile(
               leading: Icon(Icons.power_settings_new),
               title: new Text("Đăng xuất"),
