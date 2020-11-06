@@ -9,6 +9,24 @@ class DoctorPersonal extends StatefulWidget {
 }
 
 class _DoctorPersonalState extends State<DoctorPersonal> {
+  // code thua
+  var dienThoaiUpdate = TextEditingController();
+  String _valueTien;
+  Widget _buildDienThoai() {
+    print("so dien thoai : ${dienThoaiUpdate.text}");
+    if (dienThoaiUpdate.text != null) {
+      print("in 1 ");
+      return Text("0963852456",
+          style: TextStyle(fontWeight: FontWeight.w300, fontSize: 15));
+    } else {
+      print("in 2 ${dienThoaiUpdate.text}");
+      return Text(dienThoaiUpdate.text,
+          style: TextStyle(fontWeight: FontWeight.w300, fontSize: 15));
+    }
+  }
+  // het code thua
+  // het code thua
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,9 +145,9 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
                         SizedBox(
                           width: 25,
                         ),
-                        Text("0963852456",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w300, fontSize: 15)),
+                        Container(
+                          child: _buildDienThoai(),
+                        ),
                         SizedBox(
                           width: 165,
                         ),
@@ -141,7 +159,52 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
                               //color: Colors.orange, // button color
                               child: InkWell(
                                 //  splashColor: Colors.green, // splash color
-                                onTap: () {},
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (_) => new AlertDialog(
+                                            title: new Text("Cập nhật"),
+                                            content: TextFormField(
+                                              controller: dienThoaiUpdate,
+                                              keyboardType: TextInputType.phone,
+                                              decoration: InputDecoration(
+                                                  border: OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                10)),
+                                                  ),
+                                                  labelText: 'Điện thoại',
+                                                  hintText:
+                                                      'Nhập số điện thoại',
+                                              ),
+                                            ),
+                                            actions: <Widget>[
+                                              Row(
+                                                children: [
+                                                  FlatButton(
+                                                    child: Text('Cập nhật'),
+                                                    onPressed: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                DoctorPersonal(),
+                                                          ));
+                                                    },
+                                                  ),
+                                                  FlatButton(
+                                                    child: Text('Không!'),
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ));
+                                },
                                 // button pressed
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -192,7 +255,51 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
                               //color: Colors.orange, // button color
                               child: InkWell(
                                 //  splashColor: Colors.green, // splash color
-                                onTap: () {},
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (_) => new AlertDialog(
+                                        title: new Text("Cập nhật"),
+                                        content: TextFormField(
+                                          controller: dienThoaiUpdate,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(
+                                                borderRadius:
+                                                BorderRadius.all(
+                                                    Radius.circular(
+                                                        10)),
+                                              ),
+                                              labelText: 'Địa chỉ',
+                                              hintText:
+                                              'Nhập địa chỉ',
+                                              ),
+                                        ),
+                                        actions: <Widget>[
+                                          Row(
+                                            children: [
+                                              FlatButton(
+                                                child: Text('Cập nhật'),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            DoctorPersonal(),
+                                                      ));
+                                                },
+                                              ),
+                                              FlatButton(
+                                                child: Text('Không!'),
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .pop();
+                                                },
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ));
+                                },
                                 // button pressed
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -271,7 +378,52 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
                               //color: Colors.orange, // button color
                               child: InkWell(
                                 //  splashColor: Colors.green, // splash color
-                                onTap: () {},
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (_) => new AlertDialog(
+                                        title: new Text("Cập nhật"),
+                                        content: TextFormField(
+                                         // controller: dienThoaiUpdate,
+
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(
+                                              borderRadius:
+                                              BorderRadius.all(
+                                                  Radius.circular(
+                                                      10)),
+                                            ),
+                                            labelText: 'Nơi công tác',
+                                            hintText:
+                                            'Nhập nơi công tác',
+                                          ),
+                                        ),
+                                        actions: <Widget>[
+                                          Row(
+                                            children: [
+                                              FlatButton(
+                                                child: Text('Cập nhật'),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            DoctorPersonal(),
+                                                      ));
+                                                },
+                                              ),
+                                              FlatButton(
+                                                child: Text('Không!'),
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .pop();
+                                                },
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ));
+                                },
                                 // button pressed
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -289,7 +441,6 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
                         ),
                       ],
                     ),
-
                     SizedBox(
                       height: 5,
                     ),
@@ -324,7 +475,54 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
                               //color: Colors.orange, // button color
                               child: InkWell(
                                 //  splashColor: Colors.green, // splash color
-                                onTap: () {},
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (_) => new AlertDialog(
+                                        title: new Text("Cập nhật"),
+                                        content: TextFormField(
+                                         // controller: dienThoaiUpdate,
+
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(
+                                              borderRadius:
+                                              BorderRadius.all(
+                                                  Radius.circular(
+                                                      10)),
+                                            ),
+
+                                            labelText: 'Khoa',
+                                            hintText:
+                                            'Nhập khoa',
+                                          ),
+                                          maxLines: 4,
+                                        ),
+                                        actions: <Widget>[
+                                          Row(
+                                            children: [
+                                              FlatButton(
+                                                child: Text('Cập nhật'),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            DoctorPersonal(),
+                                                      ));
+                                                },
+                                              ),
+                                              FlatButton(
+                                                child: Text('Không!'),
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .pop();
+                                                },
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ));
+                                },
                                 // button pressed
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -376,7 +574,52 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
                               //color: Colors.orange, // button color
                               child: InkWell(
                                 //  splashColor: Colors.green, // splash color
-                                onTap: () {},
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (_) => new AlertDialog(
+                                        title: new Text("Cập nhật"),
+                                        content: TextFormField(
+                                          //controller: dienThoaiUpdate,
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(
+                                              borderRadius:
+                                              BorderRadius.all(
+                                                  Radius.circular(
+                                                      10)),
+                                            ),
+                                            labelText: 'Năm kinh nghiệm',
+                                            hintText:
+                                            'Nhập năm kinh nghiệm',
+                                          ),
+                                        ),
+                                        actions: <Widget>[
+                                          Row(
+                                            children: [
+                                              FlatButton(
+                                                child: Text('Cập nhật'),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            DoctorPersonal(),
+                                                      ));
+                                                },
+                                              ),
+                                              FlatButton(
+                                                child: Text('Không!'),
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .pop();
+                                                },
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ));
+                                },
                                 // button pressed
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -428,7 +671,50 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
                               //color: Colors.orange, // button color
                               child: InkWell(
                                 //  splashColor: Colors.green, // splash color
-                                onTap: () {},
+                                onTap: () {showDialog(
+                                    context: context,
+                                    builder: (_) => new AlertDialog(
+                                      title: new Text("Cập nhật"),
+                                      content: TextFormField(
+                                        //controller: dienThoaiUpdate,
+
+                                        decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                            BorderRadius.all(
+                                                Radius.circular(
+                                                    10)),
+                                          ),
+                                          labelText: 'Chuyên khoa',
+                                          hintText:
+                                          'Nhập chuyên khoa',
+                                        ),
+                                      ),
+                                      actions: <Widget>[
+                                        Row(
+                                          children: [
+                                            FlatButton(
+                                              child: Text('Cập nhật'),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          DoctorPersonal(),
+                                                    ));
+                                              },
+                                            ),
+                                            FlatButton(
+                                              child: Text('Không!'),
+                                              onPressed: () {
+                                                Navigator.of(context)
+                                                    .pop();
+                                              },
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ));},
                                 // button pressed
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -480,7 +766,53 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
                               //color: Colors.orange, // button color
                               child: InkWell(
                                 //  splashColor: Colors.green, // splash color
-                                onTap: () {},
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (_) => new AlertDialog(
+                                        title: new Text("Cập nhật"),
+                                        content: TextFormField(
+                                          //controller: dienThoaiUpdate,
+                                          keyboardType: TextInputType.phone,
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(
+                                              borderRadius:
+                                              BorderRadius.all(
+                                                  Radius.circular(
+                                                      10)),
+                                            ),
+                                            labelText: 'Các bệnh điều trị',
+                                            hintText:
+                                            'Nhập các bệnh điều trị',
+                                          ),
+                                          maxLines: 5,
+                                        ),
+                                        actions: <Widget>[
+                                          Row(
+                                            children: [
+                                              FlatButton(
+                                                child: Text('Cập nhật'),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            DoctorPersonal(),
+                                                      ));
+                                                },
+                                              ),
+                                              FlatButton(
+                                                child: Text('Không!'),
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .pop();
+                                                },
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ));
+                                },
                                 // button pressed
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -507,7 +839,6 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
                           width: 25,
                         ),
                         ImageIcon(
-
                           AssetImage("assets/images/price.png"),
                           color: Color.fromRGBO(78, 201, 228, 1),
                           size: 27,
@@ -533,7 +864,57 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
                               //color: Colors.orange, // button color
                               child: InkWell(
                                 //  splashColor: Colors.green, // splash color
-                                onTap: () {},
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (_) => new AlertDialog(
+                                        title: new Text("Cập nhật"),
+                                        content: DropdownButton<String>(
+                                            isExpanded: true,
+                                            hint: Text("Chọn giá tiền cho dịch vụ"),
+                                            value: _valueTien,
+                                            items: <String>[
+                                              '100000 đồng/lần',
+                                              '200000 đồng/lần',
+                                              '300000 đồng/lần',
+                                              '400000 đồng/lần'
+                                            ].map((String value) {
+                                              return new DropdownMenuItem<String>(
+                                                value: value,
+                                                child: new Text(value),
+                                              );
+                                            }).toList(),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                _valueTien = value;
+                                              });
+                                            }),
+                                        actions: <Widget>[
+                                          Row(
+                                            children: [
+                                              FlatButton(
+                                                child: Text('Cập nhật'),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            DoctorPersonal(),
+                                                      ));
+                                                },
+                                              ),
+                                              FlatButton(
+                                                child: Text('Không!'),
+                                                onPressed: () {
+                                                  Navigator.of(context)
+                                                      .pop();
+                                                },
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ));
+                                },
                                 // button pressed
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -570,22 +951,22 @@ class _DoctorPersonalState extends State<DoctorPersonal> {
             showDialog(
                 context: context,
                 builder: (_) => new AlertDialog(
-                  title: new Text("Xác Nhận"),
-                  content: new Text(
-                      "Thông tin bạn vừa cập nhật sẽ được gửi lên admin để kiểm tra."),
-                  actions: <Widget>[
-                    FlatButton(
-                      child: Text('Đồng ý'),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DoctorTab(),
-                            ));
-                      },
-                    ),
-                  ],
-                ));
+                      title: new Text("Xác Nhận"),
+                      content: new Text(
+                          "Thông tin bạn vừa cập nhật sẽ được gửi lên admin để kiểm tra."),
+                      actions: <Widget>[
+                        FlatButton(
+                          child: Text('Đồng ý'),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => DoctorTab(),
+                                ));
+                          },
+                        ),
+                      ],
+                    ));
           },
         ),
       ),

@@ -16,12 +16,22 @@ class _DoctorTabState extends State<DoctorTab> {
     final _kTabPages = <Widget>[
       // Center(child: Icon(Icons.cloud, size: 64.0, color: Colors.teal)),
       // Center(child: Icon(Icons.alarm, size: 64.0, color: Colors.cyan)),
-      DoctorHome(),
       DoctorEmergency(),
+      DoctorHome(),
     ];
     final _kTabs = <Tab>[
-      Tab(icon: ImageIcon(AssetImage("assets/images/calendar.png"), size: 40,), text: 'Đặt hẹn'),
-      Tab(icon: ImageIcon(AssetImage("assets/images/stethoscope.png"), size: 40,), text: 'Khám ngay'),
+      Tab(
+          icon: ImageIcon(
+            AssetImage("assets/images/stethoscope.png"),
+            size: 40,
+          ),
+          text: 'Khám ngay'),
+      Tab(
+          icon: ImageIcon(
+            AssetImage("assets/images/calendar.png"),
+            size: 40,
+          ),
+          text: 'Đặt hẹn'),
     ];
     return DefaultTabController(
       length: _kTabs.length,

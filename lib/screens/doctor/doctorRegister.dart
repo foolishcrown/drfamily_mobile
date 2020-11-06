@@ -48,6 +48,7 @@ class LabeledRadio extends StatelessWidget {
 }
 
 class _DoctorRegisterState extends State<DoctorRegister> {
+  String _valueTien;
   final _formKey = GlobalKey<FormState>();
   var emailController = TextEditingController();
   var fullNameController = TextEditingController();
@@ -84,7 +85,7 @@ class _DoctorRegisterState extends State<DoctorRegister> {
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(100)),
+                                BorderRadius.all(Radius.circular(10)),
                           ),
                           labelText: 'Email',
                           hintText: 'Nhập email ',
@@ -104,7 +105,7 @@ class _DoctorRegisterState extends State<DoctorRegister> {
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(100)),
+                                BorderRadius.all(Radius.circular(10)),
                           ),
                           labelText: 'Họ và tên',
                           hintText: 'Nhập họ và tên',
@@ -121,7 +122,7 @@ class _DoctorRegisterState extends State<DoctorRegister> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
+                      borderRadius: BorderRadius.circular(10),
                       border: Border.all(
                         width: 0.0,
                       ),
@@ -167,7 +168,7 @@ class _DoctorRegisterState extends State<DoctorRegister> {
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(100)),
+                                BorderRadius.all(Radius.circular(10)),
                           ),
                           labelText: 'Mật khẩu',
                           hintText: 'Nhập mật khẩu',
@@ -189,7 +190,7 @@ class _DoctorRegisterState extends State<DoctorRegister> {
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(100)),
+                                BorderRadius.all(Radius.circular(10)),
                           ),
                           labelText: 'Xác nhận mật khẩu',
                           hintText: 'Nhập mật khẩu',
@@ -211,7 +212,7 @@ class _DoctorRegisterState extends State<DoctorRegister> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
+                      borderRadius: BorderRadius.circular(10),
                       border: Border.all(
                         width: 0.0,
                       ),
@@ -265,7 +266,7 @@ class _DoctorRegisterState extends State<DoctorRegister> {
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(100)),
+                                BorderRadius.all(Radius.circular(10)),
                           ),
                           labelText: 'Địa chỉ',
                           hintText: 'Nhập địa chỉ',
@@ -286,7 +287,7 @@ class _DoctorRegisterState extends State<DoctorRegister> {
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(100)),
+                                BorderRadius.all(Radius.circular(10)),
                           ),
                           labelText: 'Số điện thoại',
                           hintText: 'Nhập số điện thoại',
@@ -303,6 +304,116 @@ class _DoctorRegisterState extends State<DoctorRegister> {
                     ),
                   ),
 
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(10)),
+                          ),
+                          labelText: 'Nơi công tác',
+                          hintText: 'Nhập nơi công tác',
+                          suffixIcon: ImageIcon(
+                            AssetImage("assets/images/doctor.png"),
+                            size: 5,
+                          ),),
+
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius:
+                          BorderRadius.all(Radius.circular(10)),
+                        ),
+                        labelText: 'Chuyên khoa',
+                        hintText: 'Nhập chuyên khoa',
+                        suffixIcon: ImageIcon(
+                          AssetImage("assets/images/doctor.png"),
+                          size: 5,
+                        ),),
+                      controller: phoneController,
+                      autofocus: true,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius:
+                          BorderRadius.all(Radius.circular(10)),
+                        ),
+                        labelText: 'Năm kinh nghiệm',
+                        hintText: 'Nhập năm kinh nghiệm',
+                        suffixIcon: ImageIcon(
+                          AssetImage("assets/images/doctor.png"),
+                          size: 5,
+                        ),),
+                      controller: phoneController,
+                      autofocus: true,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius:
+                          BorderRadius.all(Radius.circular(10)),
+                        ),
+                        labelText: 'Chuyên môn',
+                        hintText: 'Nhập chuyên môn',
+                        suffixIcon: ImageIcon(
+                          AssetImage("assets/images/doctor.png"),
+                          size: 5,
+                        ),),
+                      controller: phoneController,
+                      autofocus: true,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius:
+                          BorderRadius.all(Radius.circular(10)),
+                        ),
+                        labelText: 'Các bệnh điều trị',
+                        hintText: 'Nhập bệnh điều trị',
+                        suffixIcon: ImageIcon(
+                          AssetImage("assets/images/doctor.png"),
+                          size: 5,
+                        ),),
+                      maxLines: 5,
+                      controller: phoneController,
+                      autofocus: true,
+                    ),
+                  ),
+                  DropdownButton<String>(
+                      isExpanded: true,
+                      hint: Text("Chọn giá tiền cho dịch vụ"),
+                      value: _valueTien,
+                      items: <String>[
+                        '100000 đồng/lần',
+                        '200000 đồng/lần',
+                        '300000 đồng/lần',
+                        '400000 đồng/lần'
+                      ].map((String value) {
+                        return new DropdownMenuItem<String>(
+                          value: value,
+                          child: new Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          _valueTien = value;
+                        });
+                      }),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
