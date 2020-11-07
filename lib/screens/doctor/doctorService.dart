@@ -280,36 +280,46 @@ class _AddServiceState extends State<AddService> {
   final mota = TextEditingController();
   final tien = TextEditingController();
   String _valueTien;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text("Thêm dịch vụ"),
       content: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(3),
-              child: TextFormField(
-                controller: ten,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    labelText: 'Tên dịch vụ',
-                    hintText: 'Nhập tên dịch vụ',
-                    suffixIcon: Icon(Icons.drive_file_rename_outline)),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  width: 0.0,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.all(3),
+                child: TextFormField(
+                  controller: ten,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      labelText: 'Tên dịch vụ',
+                      hintText: 'Nhập tên dịch vụ',
+                      suffixIcon: Icon(Icons.drive_file_rename_outline)),
+                  validator: (dichvu) {
+                    if (dichvu.isEmpty) {
+                      return 'Vui lòng nhập tên dich vụ';
+                    }
+                    return null;
+                  },
                 ),
               ),
-              child: DropdownButton<String>(
+              Container(
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    width: 0.0,
+                  ),
+                ),
+                child: DropdownButton<String>(
+
                   isExpanded: true,
                   hint: Text("Chọn giá tiền cho dịch vụ"),
                   value: _valueTien,
@@ -328,40 +338,51 @@ class _AddServiceState extends State<AddService> {
                     setState(() {
                       _valueTien = value;
                     });
-                  }),
-            ),
-            SizedBox(
-              height: 3,
-            ),
-            Container(
-              padding: EdgeInsets.all(3),
-              child: TextFormField(
-                controller: mota,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    labelText: 'Mô tả',
-                    hintText: 'Nhập mô tả về dịch vụ',
-                    suffixIcon: Icon(Icons.drive_file_rename_outline)),
-                maxLines: 5,
+                  },
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 3,
+              ),
+              Container(
+                padding: EdgeInsets.all(3),
+                child: TextFormField(
+                  controller: mota,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      labelText: 'Mô tả',
+                      hintText: 'Nhập mô tả về dịch vụ',
+                      suffixIcon: Icon(Icons.drive_file_rename_outline)),
+                  maxLines: 5,
+                  validator: (mota) {
+                    if (mota.isEmpty) {
+                      return 'Vui lòng nhập mô tả dich vụ';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       actions: [
         FlatButton(
           child: Text('Thêm'),
           onPressed: () {
-            listDichVu.add(DichVu(ten.text, mota.text, _valueTien,
-                "assets/images/first-aid-kit.png"));
-            print("giá ${_valueTien}");
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DoctorService(),
-                ));
+            if (_formKey.currentState.validate()) {
+              // do something here
+              listDichVu.add(DichVu(ten.text, mota.text, _valueTien,
+                  "assets/images/first-aid-kit.png"));
+              print("giá ${_valueTien}");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DoctorService(),
+                  ));
+            }
           },
         )
       ],

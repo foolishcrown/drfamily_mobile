@@ -1,6 +1,7 @@
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:dr_family_app/screens/doctor/doctorHome.dart';
 import 'package:dr_family_app/screens/doctor/doctorTab.dart';
+import 'package:dr_family_app/screens/doctor/doctorTab2.dart';
 import 'package:dr_family_app/screens/doctor/mainDoctor.dart';
 import 'package:flutter/material.dart';
 
@@ -326,7 +327,7 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DoctorTab(),
+                              builder: (context) => DoctorTab2(),
                             ));
                       },
                     ),
@@ -403,13 +404,13 @@ class _DoctorPrescribingState extends State<DoctorPrescribing> {
                                 Row(
                                   children: [
                                     Text('Trưa: '),
-                                    Text(e.sang),
+                                    Text(e.trua),
                                   ],
                                 ),
                                 Row(
                                   children: [
                                     Text('Chiều: '),
-                                    Text(e.sang),
+                                    Text(e.chieu),
                                   ],
                                 )
                               ],

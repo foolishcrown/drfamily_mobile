@@ -7,6 +7,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'callPhone.dart';
 import 'package:flutter/material.dart';
 
+import 'doctorTab2.dart';
+
 class DoctorRequestDetail extends StatefulWidget {
   @override
   _DoctorRequestDetailState createState() => _DoctorRequestDetailState();
@@ -674,7 +676,7 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DoctorTab(),
+                              builder: (context) => DoctorTab2(),
                             ));
                       },
                     ),
@@ -705,7 +707,7 @@ class _DoctorRequestDetailState extends State<DoctorRequestDetail> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DoctorTab(),
+                              builder: (context) => DoctorTab2(),
                             ));
                       },
                     ),

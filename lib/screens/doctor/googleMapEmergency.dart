@@ -1,4 +1,5 @@
 import 'package:dr_family_app/screens/doctor/doctorPrescribingEmergency.dart';
+import 'package:dr_family_app/screens/doctor/doctorTab2.dart';
 import 'package:dr_family_app/screens/doctor/secret.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
@@ -571,6 +572,25 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
                     Container(
                       padding: EdgeInsets.all(5),
                       child: FlatButton(
+                        child: Text('Hủy'),
+                        textColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                            side:
+                            BorderSide(width: 1, style: BorderStyle.solid),
+                            borderRadius: BorderRadius.circular(10)),
+                        onPressed: _huy,
+                        // onPressed: () {
+                        //   Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(
+                        //         builder: (context) => CallPhone(),
+                        //       ));
+                        // },
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      child: FlatButton(
                         child: Text('Gọi điện'),
                         textColor: Colors.black,
                         shape: RoundedRectangleBorder(
@@ -626,6 +646,33 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
                   MaterialPageRoute(
                     builder: (context) => DoctorPrescribingEmergency(),
                   ));
+            },
+          )
+        ],
+      ),
+    );
+  }
+  _huy() {
+    showDialog(
+      context: context,
+      builder: (_) => new AlertDialog(
+        title: new Text("Hủy khám ngay"),
+        content: new Text("Bạn có chắc là muốn hủy khám ngay không!"),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('Đồng ý'),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DoctorTab2(),
+                  ));
+            },
+          ),
+          FlatButton(
+            child: Text('Không'),
+            onPressed: () {
+              Navigator.pop(context);
             },
           )
         ],

@@ -7,6 +7,7 @@ import 'doctorMedicalRequest.dart';
 import 'package:flutter/material.dart';
 
 import 'doctorNavigationDrawer.dart';
+import 'doctorRequestDetail.dart';
 
 class DoctorHome extends StatefulWidget {
   @override
@@ -19,68 +20,399 @@ class _DoctorHomeState extends State<DoctorHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+        body: SingleChildScrollView(
+      child: Column(
         children: <Widget>[
-          Container(
-              padding: EdgeInsets.only(left: 10, top: 25),
-              width: 500,
-              child: Row(
+          Card(
+            elevation: 6,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: ListTile(
+              subtitle: Column(
                 children: [
-                  Text(
-                    'Yêu cầu ',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 45,
+                        child: CircleAvatar(
+                          radius: 45,
+                          backgroundImage:
+                              AssetImage('assets/images/benhnhannu.jpg'),
+                        ),
+                      )
+                    ],
                   ),
-                  SizedBox(
-                    width: 180,
+                  Center(
+                    child: Text(
+                      'Nguyễn Lê Phương Hạnh ',
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
-                  Text(
-                    'Tiếp theo ',
-                    style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.add_location,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text('263 Khánh Hội, P5, Q4, TP. Hồ Chí Minh '),
+                      ],
+                    ),
                   ),
-                  Icon(
-                    Icons.arrow_forward_outlined,
-                    size: 15,
-                    color: Colors.red,
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.access_time,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text('5:00 A.M - 20/11/2020'),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20),
+                          child: Row(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  Icons.transfer_within_a_station,
+                                  color: Color.fromRGBO(78, 201, 228, 1),
+                                ),
+                                padding: EdgeInsets.only(right: 5, bottom: 5),
+                              ),
+                              Text('13 km'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.add_box,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text(' Bị cảm sốt'),
+                      ],
+                    ),
                   ),
                 ],
-              )),
-          Expanded(
-            child: DoctorMedicalRequest(),
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DoctorRequestDetail(),
+                    ));
+              },
+            ),
           ),
-          Container(
-              padding: EdgeInsets.only(left: 10, top: 25),
-              width: 500,
-              child: Row(
+          Card(
+            elevation: 6,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: ListTile(
+              subtitle: Column(
                 children: [
-                  Text(
-                    'Lịch hẹn ',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 45,
+                        child: CircleAvatar(
+                          radius: 45,
+                          backgroundImage:
+                              AssetImage('assets/images/benhnhannu2.jpg'),
+                        ),
+                      )
+                    ],
                   ),
-                  SizedBox(
-                    width: 170,
+                  Center(
+                    child: Text(
+                      'Trần Thùy Trang ',
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
-                  Text(
-                    'Tiếp theo ',
-                    style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.add_location,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text('263 Khánh Hội, P5, Q4, TP. Hồ Chí Minh '),
+                      ],
+                    ),
                   ),
-                  Icon(
-                    Icons.arrow_forward_outlined,
-                    size: 15,
-                    color: Colors.red,
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.access_time,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text('4:00 A.M - 21/11/2020'),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20),
+                          child: Row(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  Icons.transfer_within_a_station,
+                                  color: Color.fromRGBO(78, 201, 228, 1),
+                                ),
+                                padding: EdgeInsets.only(right: 5, bottom: 5),
+                              ),
+                              Text('13 km'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.add_box,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text(' Bị cảm sốt'),
+                      ],
+                    ),
                   ),
                 ],
-              )),
-          Expanded(
-            child: DoctorAppointmentSchedule(),
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DoctorRequestDetail(),
+                    ));
+              },
+            ),
+          ),
+          Card(
+            elevation: 6,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: ListTile(
+              subtitle: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 45,
+                        child: CircleAvatar(
+                          radius: 45,
+                          backgroundImage:
+                              AssetImage('assets/images/benhnhannu3.jpg'),
+                        ),
+                      )
+                    ],
+                  ),
+                  Center(
+                    child: Text(
+                      'Nguyễn Kim Liên ',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.add_location,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text('263 Khánh Hội, P5, Q4, TP. Hồ Chí Minh '),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.access_time,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text('2:00 A.M - 22/11/2020'),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20),
+                          child: Row(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  Icons.transfer_within_a_station,
+                                  color: Color.fromRGBO(78, 201, 228, 1),
+                                ),
+                                padding: EdgeInsets.only(right: 5, bottom: 5),
+                              ),
+                              Text('13 km'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.add_box,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text(' Bị cảm sốt'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DoctorRequestDetail(),
+                    ));
+              },
+            ),
+          ),
+          Card(
+            elevation: 6,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: ListTile(
+              subtitle: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 45,
+                        child: CircleAvatar(
+                          radius: 45,
+                          backgroundImage:
+                              AssetImage('assets/images/benhnhannu4.jpg'),
+                        ),
+                      )
+                    ],
+                  ),
+                  Center(
+                    child: Text(
+                      'Trần Văn Mai ',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.add_location,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text('263 Khánh Hội, P5, Q4, TP. Hồ Chí Minh '),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.access_time,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text('1:00 A.M - 23/11/2020'),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20),
+                          child: Row(
+                            children: [
+                              Container(
+                                child: Icon(
+                                  Icons.transfer_within_a_station,
+                                  color: Color.fromRGBO(78, 201, 228, 1),
+                                ),
+                                padding: EdgeInsets.only(right: 5, bottom: 5),
+                              ),
+                              Text('13 km'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(
+                            Icons.add_box,
+                            color: Color.fromRGBO(78, 201, 228, 1),
+                          ),
+                          padding: EdgeInsets.only(right: 5, bottom: 5),
+                        ),
+                        Text(' Bị cảm sốt'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DoctorRequestDetail(),
+                    ));
+              },
+            ),
           ),
         ],
       ),
-    );
+    ));
   }
 }

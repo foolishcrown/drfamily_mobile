@@ -1,5 +1,6 @@
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:dr_family_app/screens/doctor/doctorTab.dart';
+import 'package:dr_family_app/screens/doctor/doctorTab2.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -366,7 +367,7 @@ class _DoctorPrescribingEmergencyState extends State<DoctorPrescribingEmergency>
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DoctorTab(),
+                          builder: (context) => DoctorTab2(),
                         ));
                   },
                 ),
@@ -442,13 +443,13 @@ class _DoctorPrescribingEmergencyState extends State<DoctorPrescribingEmergency>
                         Row(
                           children: [
                             Text('Trưa: '),
-                            Text(e.sang),
+                            Text(e.trua),
                           ],
                         ),
                         Row(
                           children: [
                             Text('Chiều: '),
-                            Text(e.sang),
+                            Text(e.chieu),
                           ],
                         )
                       ],
@@ -686,8 +687,8 @@ class _DoctorMedicalState extends State<DoctorMedical> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
-                    labelText: 'Tổng số lượng thuốc',
-                    hintText: 'Nhập số lượng',
+                    labelText: 'Số lượng thuốc',
+                    hintText: 'Nhập số lượng (viên/gói/...)',
                     suffixIcon: Icon(Icons.drive_file_rename_outline)),
                 keyboardType: TextInputType.number,
               ),
@@ -695,7 +696,7 @@ class _DoctorMedicalState extends State<DoctorMedical> {
             Container(
               padding: EdgeInsets.only(left: 15),
               alignment: Alignment.topLeft,
-              child: Text('Liều dùng: viên/buổi'),
+              child: Text('Liều dùng: viên-gói/buổi'),
             ),
             Column(
                 mainAxisAlignment: MainAxisAlignment.center,

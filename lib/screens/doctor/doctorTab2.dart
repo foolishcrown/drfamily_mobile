@@ -1,23 +1,21 @@
-import 'package:badges/badges.dart';
-import 'package:dr_family_app/screens/doctor/doctorCalender.dart';
-import 'package:dr_family_app/screens/doctor/doctorHome.dart';
+import 'package:dr_family_app/screens/doctor/doctorEmergency2.dart';
 import 'package:flutter/material.dart';
 
-import 'doctorEmergency.dart';
+import 'doctorCalender.dart';
+import 'doctorHome.dart';
 import 'doctorNavigationDrawer.dart';
-
-class DoctorTab extends StatefulWidget {
+class DoctorTab2 extends StatefulWidget {
   @override
-  _DoctorTabState createState() => _DoctorTabState();
+  _DoctorTab2State createState() => _DoctorTab2State();
 }
 
-class _DoctorTabState extends State<DoctorTab> {
+class _DoctorTab2State extends State<DoctorTab2> {
   @override
   Widget build(BuildContext context) {
     final _kTabPages = <Widget>[
       // Center(child: Icon(Icons.cloud, size: 64.0, color: Colors.teal)),
       // Center(child: Icon(Icons.alarm, size: 64.0, color: Colors.cyan)),
-      DoctorEmergency(),
+      DoctorEmergency2(),
       DoctorHome(),
       DoctorCalender(),
     ];
@@ -59,4 +57,3 @@ class _DoctorTabState extends State<DoctorTab> {
     );
   }
 }
-

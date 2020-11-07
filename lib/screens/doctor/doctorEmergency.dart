@@ -1,4 +1,5 @@
 import 'package:dr_family_app/screens/doctor/doctorTab.dart';
+import 'package:dr_family_app/screens/doctor/doctorTab2.dart';
 import 'package:dr_family_app/screens/doctor/googleMapEmergency.dart';
 import 'package:dr_family_app/screens/doctor/videoApp.dart';
 import 'package:flutter/material.dart';
@@ -372,7 +373,7 @@ class _DoctorEmergencyState extends State<DoctorEmergency> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DoctorTab(),
+                              builder: (context) => DoctorTab2(),
                             ));
                       },
                     ),

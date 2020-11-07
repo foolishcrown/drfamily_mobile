@@ -1,6 +1,7 @@
 import 'package:dr_family_app/screens/doctor/doctorPrescribing.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'doctorTab2.dart';
 import 'googleMap.dart';
 import 'package:flutter/material.dart';
 import 'callPhone.dart';
@@ -452,7 +453,31 @@ class _DoctorRequestDetail_2State extends State<DoctorRequestDetail_2> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(width: 70,),
+                  SizedBox(width: 20,),
+                  Container(
+                      padding: EdgeInsets.all(5),
+                      child: SizedBox.fromSize(
+                        size: Size(90, 90), // button width and height
+                        child: ClipOval(
+                          child: Material(
+                            // color: Colors.orange, // button color
+                            child: InkWell(
+                              splashColor: Colors.green, // splash color
+                              onTap: _huy,// button pressed
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Image(
+                                      image: AssetImage(
+                                          "assets/images/rejected.png"),
+                                      height: 35.0, color: Color.fromRGBO(78, 201, 228, 1)), // icon
+                                  Text("Hủy"), // text
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      )),
                   Container(
                       padding: EdgeInsets.all(5),
                       child: SizedBox.fromSize(
@@ -668,5 +693,32 @@ class _DoctorRequestDetail_2State extends State<DoctorRequestDetail_2> {
                 )
               ],
             ));
+  }
+  _huy() {
+    showDialog(
+      context: context,
+      builder: (_) => new AlertDialog(
+        title: new Text("Hủy khám ngay"),
+        content: new Text("Bạn có chắc là muốn hủy khám ngay không!"),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('Đồng ý'),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DoctorTab2(),
+                  ));
+            },
+          ),
+          FlatButton(
+            child: Text('Không'),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          )
+        ],
+      ),
+    );
   }
 }
