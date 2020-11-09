@@ -30,56 +30,46 @@ class _DoctorCalenderState extends State<DoctorCalender>
     final _selectedDay = DateTime.now();
 
     _events = {
-      _selectedDay.subtract(Duration(days: 30)): [
-        'Event A0',
-        'Event B0',
-        'Event C0'
+      _selectedDay.subtract(Duration(days: 5)): [
+        'Trần Văn Nam',
       ],
       _selectedDay.subtract(Duration(days: 27)): ['Event A1'],
       _selectedDay.subtract(Duration(days: 20)): [
-        'Event A2',
-        'Event B2',
-        'Event C2',
-        'Event D2'
+        'Lê Văn Chiến',
       ],
-      _selectedDay.subtract(Duration(days: 16)): ['Event A3', 'Event B3'],
+      _selectedDay.subtract(Duration(days: 16)): ['Event A3', ],
       _selectedDay.subtract(Duration(days: 10)): [
-        'Event A4',
-        'Event B4',
-        'Event C4'
+        'Lê công Vinh',
       ],
       _selectedDay.subtract(Duration(days: 4)): [
-        'Event A5',
-        'Event B5',
-        'Event C5'
+        'Nguyễn Văn Hai',
       ],
-      _selectedDay.subtract(Duration(days: 2)): ['Event A6', 'Event B6'],
-      _selectedDay: ['Event A7', 'Event B7', 'Event C7', 'Event D7'],
+      _selectedDay.subtract(Duration(days: 2)): [
+        'Dương Văn Sâm',
+      ],
+      _selectedDay: [
+        'Lại Văn Sâm',
+      ],
       _selectedDay.add(Duration(days: 1)): [
-        'Event A8',
-        'Event B8',
-        'Event C8',
-        'Event D8'
+        'Ông Cao Thắng',
       ],
-      _selectedDay.add(Duration(days: 3)):
-          Set.from(['Event A9', 'Event A9', 'Event B9']).toList(),
+      _selectedDay.add(Duration(days: 3)): Set.from([
+        'Hai Văn Mai',
+      ]).toList(),
       _selectedDay.add(Duration(days: 7)): [
-        'Event A10',
-        'Event B10',
-        'Event C10'
+        'Nguễn Nhật Nam',
       ],
-      _selectedDay.add(Duration(days: 11)): ['Event A11', 'Event B11'],
+      _selectedDay.add(Duration(days: 11)): [
+        'Mai Văn Sang',
+      ],
       _selectedDay.add(Duration(days: 17)): [
-        'Event A12',
-        'Event B12',
-        'Event C12',
-        'Event D12'
+        'Cao Ngọc Nam',
       ],
-      _selectedDay.add(Duration(days: 22)): ['Event A13', 'Event B13'],
+      _selectedDay.add(Duration(days: 22)): [
+        'Tần Thắng Kiệt',
+      ],
       _selectedDay.add(Duration(days: 26)): [
-        'Event A14',
-        'Event B14',
-        'Event C14'
+        'Ốc Văn Quế',
       ],
     };
 
@@ -298,9 +288,13 @@ class _DoctorCalenderState extends State<DoctorCalender>
           children: [
             Row(
               children: [
-                SizedBox(width: 25,),
+                SizedBox(
+                  width: 25,
+                ),
                 Text("Ghi chú:"),
-                 SizedBox(width: 5,),
+                SizedBox(
+                  width: 5,
+                ),
                 Container(
                   width: 10,
                   height: 10,
@@ -310,43 +304,6 @@ class _DoctorCalenderState extends State<DoctorCalender>
                 ),
                 Text(" Có hẹn"),
               ],
-            ),
-            Row(
-              children: [
-                SizedBox(width: 25,),
-                Text("Chế độ xem lịch:"),
-              ],
-            ),
-          ],
-        ),
-        Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            RaisedButton(
-              child: Text('1 Tháng'),
-              onPressed: () {
-                setState(() {
-                  _calendarController.setCalendarFormat(CalendarFormat.month);
-                });
-              },
-            ),
-            RaisedButton(
-              child: Text('2 Tuần'),
-              onPressed: () {
-                setState(() {
-                  _calendarController
-                      .setCalendarFormat(CalendarFormat.twoWeeks);
-                });
-              },
-            ),
-            RaisedButton(
-              child: Text('1 Tuần'),
-              onPressed: () {
-                setState(() {
-                  _calendarController.setCalendarFormat(CalendarFormat.week);
-                });
-              },
             ),
           ],
         ),
@@ -382,7 +339,7 @@ class _DoctorCalenderState extends State<DoctorCalender>
                       ),
                       Center(
                         child: Text(
-                          'Trần Văn Nam',
+                          event.toString(),
                         ),
                       ),
                       Padding(

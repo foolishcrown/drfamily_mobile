@@ -15,9 +15,9 @@ class VideoDemoState extends State<VideoDemo> {
 
   @override
   void initState() {
-    _controller = VideoPlayerController.network(
-        "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
-    //_controller = VideoPlayerController.asset("assets/video/big_buck_bunny_720p_20mb.mp4");
+    // _controller = VideoPlayerController.network(
+    //     "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
+    _controller = VideoPlayerController.asset("assets/video/clipsick_Trim.mp4");
     _initializeVideoPlayerFuture = _controller.initialize();
     _controller.setLooping(true);
     _controller.setVolume(1.0);

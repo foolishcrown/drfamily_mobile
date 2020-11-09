@@ -77,7 +77,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    - assets/video/
+    - assets/video/clipsick_Trim.mp4
 
 
 

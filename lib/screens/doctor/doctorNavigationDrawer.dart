@@ -33,21 +33,12 @@ class _DoctorNavigationDrawerState extends State<DoctorNavigationDrawer> {
       child: new ListView(
         children: <Widget>[
           new UserAccountsDrawerHeader(
-            accountName: new Text(
-              "Nguyễn Văn Minh",
-              style: TextStyle(color: Colors.white),
-            ),
-            accountEmail: new Text("123 Nguyễn Trãi, Tp Hồ Chí Minh",
-                style: TextStyle(color: Colors.white)),
             decoration: new BoxDecoration(
               image: new DecorationImage(
                 image: new ExactAssetImage('assets/images/backgroundlake.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
-            currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage(
-                    "https://randomuser.me/api/portraits/men/46.jpg")),
           ),
           // new ListTile(
           //   leading: Icon(Icons.notifications_active_rounded),
