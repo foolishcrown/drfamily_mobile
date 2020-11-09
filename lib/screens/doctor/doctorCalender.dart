@@ -31,7 +31,7 @@ class _DoctorCalenderState extends State<DoctorCalender>
 
     _events = {
       _selectedDay.subtract(Duration(days: 5)): [
-        'Trần Văn Nam',
+        'Trần Văn Nam', 'Trần Lê Công Vinh',
       ],
       _selectedDay.subtract(Duration(days: 27)): ['Event A1'],
       _selectedDay.subtract(Duration(days: 20)): [
@@ -116,8 +116,8 @@ class _DoctorCalenderState extends State<DoctorCalender>
         children: <Widget>[
           // Switch out 2 lines below to play with TableCalendar's settings
           //-----------------------
-          _buildTableCalendar(),
-          // _buildTableCalendarWithBuilders(),
+          //_buildTableCalendar(),
+           _buildTableCalendarWithBuilders(),
           const SizedBox(height: 8.0),
           _buildButtons(),
           const SizedBox(height: 8.0),
@@ -157,7 +157,7 @@ class _DoctorCalenderState extends State<DoctorCalender>
   // More advanced TableCalendar configuration (using Builders & Styles)
   Widget _buildTableCalendarWithBuilders() {
     return TableCalendar(
-      locale: 'pl_PL',
+      locale: 'en_US',
       calendarController: _calendarController,
       events: _events,
       holidays: _holidays,
@@ -299,7 +299,7 @@ class _DoctorCalenderState extends State<DoctorCalender>
                   width: 10,
                   height: 10,
                   decoration: BoxDecoration(
-                      shape: BoxShape.circle,
+                      shape: BoxShape.rectangle,
                       color: Color.fromRGBO(78, 201, 228, 1)),
                 ),
                 Text(" Có hẹn"),
