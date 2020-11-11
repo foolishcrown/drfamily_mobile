@@ -286,7 +286,7 @@ class _DoctorEmergencyState extends State<DoctorEmergency> {
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
                             color: Colors.grey)),
-                    Container(height: 250, child: VideoDemo()),
+                    Container(height: 270, child: VideoDemo()),
                   ],
                 ),
               ),

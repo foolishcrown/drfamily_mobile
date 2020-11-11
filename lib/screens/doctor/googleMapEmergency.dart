@@ -11,7 +11,8 @@ import 'dart:math';
 
 class DoctorGoogleMapEmergency extends StatefulWidget {
   @override
-  _DoctorGoogleMapEmergencyState createState() => _DoctorGoogleMapEmergencyState();
+  _DoctorGoogleMapEmergencyState createState() =>
+      _DoctorGoogleMapEmergencyState();
 }
 
 class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
@@ -24,7 +25,9 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
   String _currentAddress;
 
   final startAddressController = TextEditingController();
-  final destinationAddressController = TextEditingController(text: 'Lầu 8,9, Tòa nhà CirCO, 222 Điện Biên Phủ, Quận 3, TP. Hồ Chí Minh, Việt Nam');
+  final destinationAddressController = TextEditingController(
+      text:
+          'Lầu 8,9, Tòa nhà CirCO, 222 Điện Biên Phủ, Quận 3, TP. Hồ Chí Minh, Việt Nam');
 
   String _startAddress = '';
   String _destinationAddress = '';
@@ -118,7 +121,7 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
 
       setState(() {
         _currentAddress =
-        "${place.name}, ${place.locality}, ${place.postalCode}, ${place.country}";
+            "${place.name}, ${place.locality}, ${place.postalCode}, ${place.country}";
         startAddressController.text = _currentAddress;
         _startAddress = _currentAddress;
       });
@@ -132,9 +135,9 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
     try {
       // Retrieving placemarks from addresses
       List<Placemark> startPlacemark =
-      await _geolocator.placemarkFromAddress(_startAddress);
+          await _geolocator.placemarkFromAddress(_startAddress);
       List<Placemark> destinationPlacemark =
-      await _geolocator.placemarkFromAddress(_destinationAddress);
+          await _geolocator.placemarkFromAddress(_destinationAddress);
 
       if (startPlacemark != null && destinationPlacemark != null) {
         // Use the retrieved coordinates of the current position,
@@ -142,8 +145,8 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
         // current position, as it results in better accuracy.
         Position startCoordinates = _startAddress == _currentAddress
             ? Position(
-            latitude: _currentPosition.latitude,
-            longitude: _currentPosition.longitude)
+                latitude: _currentPosition.latitude,
+                longitude: _currentPosition.longitude)
             : startPlacemark[0].position;
         Position destinationCoordinates = destinationPlacemark[0].position;
 
@@ -295,7 +298,6 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
 
   @override
   Widget build(BuildContext context) {
-
     // Determining the screen width & height
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
@@ -391,7 +393,7 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
                           width: width * 0.9,
                           child: Padding(
                             padding:
-                            const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                                const EdgeInsets.only(top: 10.0, bottom: 10.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
@@ -421,7 +423,6 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
                                     }),
                                 SizedBox(height: 10),
                                 _textField(
-
                                     label: 'Nơi Đến',
                                     hint: 'Chọn điểm đến',
                                     prefixIcon: Icon(Icons.looks_two),
@@ -435,7 +436,7 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
                                 SizedBox(height: 10),
                                 Visibility(
                                   visible:
-                                  _placeDistance == null ? false : true,
+                                      _placeDistance == null ? false : true,
                                   child: Text(
                                     'Khoảng cách: $_placeDistance km',
                                     style: TextStyle(
@@ -447,39 +448,39 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
                                 SizedBox(height: 5),
                                 RaisedButton(
                                   onPressed: (_startAddress.isNotEmpty ||
-                                      _destinationAddress.isNotEmpty)
+                                          _destinationAddress.isNotEmpty)
                                       ? () async {
-                                    setState(() {
-                                      if (markers.isNotEmpty)
-                                        markers.clear();
-                                      if (polylines.isNotEmpty)
-                                        polylines.clear();
-                                      if (polylineCoordinates.isNotEmpty)
-                                        polylineCoordinates.clear();
-                                      _placeDistance = null;
-                                    });
+                                          setState(() {
+                                            if (markers.isNotEmpty)
+                                              markers.clear();
+                                            if (polylines.isNotEmpty)
+                                              polylines.clear();
+                                            if (polylineCoordinates.isNotEmpty)
+                                              polylineCoordinates.clear();
+                                            _placeDistance = null;
+                                          });
 
-                                    _calculateDistance()
-                                        .then((isCalculated) {
-                                      if (isCalculated) {
-                                        _scaffoldKey.currentState
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                                'Khoảng cách được tính toán thành công'),
-                                          ),
-                                        );
-                                      } else {
-                                        _scaffoldKey.currentState
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                                'Lỗi khi tính toán khoảng cách. Vui lòng nhập địa chỉ chính xác hơn'),
-                                          ),
-                                        );
-                                      }
-                                    });
-                                  }
+                                          _calculateDistance()
+                                              .then((isCalculated) {
+                                            if (isCalculated) {
+                                              _scaffoldKey.currentState
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                      'Khoảng cách được tính toán thành công'),
+                                                ),
+                                              );
+                                            } else {
+                                              _scaffoldKey.currentState
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                      'Lỗi khi tính toán khoảng cách. Vui lòng nhập địa chỉ chính xác hơn'),
+                                                ),
+                                              );
+                                            }
+                                          });
+                                        }
                                       : null,
                                   color: Colors.red,
                                   shape: RoundedRectangleBorder(
@@ -509,7 +510,7 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
                       alignment: Alignment.bottomRight,
                       child: Padding(
                         padding:
-                        const EdgeInsets.only(right: 10.0, bottom: 10.0),
+                            const EdgeInsets.only(right: 10.0, bottom: 10.0),
                         child: ClipOval(
                           child: Material(
                             color: Colors.orange[100], // button color
@@ -576,7 +577,7 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
                         textColor: Colors.black,
                         shape: RoundedRectangleBorder(
                             side:
-                            BorderSide(width: 1, style: BorderStyle.solid),
+                                BorderSide(width: 1, style: BorderStyle.solid),
                             borderRadius: BorderRadius.circular(10)),
                         onPressed: _huy,
                         // onPressed: () {
@@ -595,7 +596,7 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
                         textColor: Colors.black,
                         shape: RoundedRectangleBorder(
                             side:
-                            BorderSide(width: 1, style: BorderStyle.solid),
+                                BorderSide(width: 1, style: BorderStyle.solid),
                             borderRadius: BorderRadius.circular(10)),
                         onPressed: () {
                           launch("tel://0963852741");
@@ -609,7 +610,7 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
                         textColor: Colors.black,
                         shape: RoundedRectangleBorder(
                             side:
-                            BorderSide(width: 1, style: BorderStyle.solid),
+                                BorderSide(width: 1, style: BorderStyle.solid),
                             borderRadius: BorderRadius.circular(10)),
                         onPressed: _daDenNoi,
                         // onPressed: () {
@@ -652,31 +653,48 @@ class _DoctorGoogleMapEmergencyState extends State<DoctorGoogleMapEmergency> {
       ),
     );
   }
+
   _huy() {
     showDialog(
-      context: context,
-      builder: (_) => new AlertDialog(
-        title: new Text("Hủy khám ngay"),
-        content: new Text("Bạn có chắc là muốn hủy khám ngay không!"),
-        actions: <Widget>[
-          FlatButton(
-            child: Text('Đồng ý'),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DoctorTab2(),
-                  ));
-            },
-          ),
-          FlatButton(
-            child: Text('Không'),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          )
-        ],
-      ),
-    );
+        context: context,
+        builder: (_) => Center(
+          child: new SingleChildScrollView(
+                child: AlertDialog(
+                  title: new Text("Hủy khám ngay"),
+                  content: Column(
+                    children: [
+                      Text('Lí do hủy khám'),
+                      TextFormField(
+                        maxLines: 5,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                        ),
+                        //autofocus: true,
+                      ),
+                    ],
+                  ),
+                  actions: <Widget>[
+                    FlatButton(
+                      child: Text('Hủy khám'),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DoctorTab2(),
+                            ));
+                      },
+                    ),
+                    FlatButton(
+                      child: Text('Không'),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    )
+                  ],
+                ),
+              ),
+        ));
   }
 }
